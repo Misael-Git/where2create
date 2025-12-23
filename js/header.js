@@ -1,12 +1,9 @@
-/**
- * Renders the Header component into the DOM.
- * @param {string} currentPage - The filename of the current page (e.g., 'index', 'thrills') to set active state.
- */
 export function loadHeader(currentPage) {
     const headerHTML = `
         <div class="container header-inner">
             <a href="index.html" class="logo">
-                <span style="color: black;">PROJECT</span><span>WEB</span>
+                <img src="img/logo.png" alt="Logo" onerror="this.onerror=null; this.src=''; this.innerHTML='<span style=\'color:white;\'>LOGO</span>';">
+                <!-- If img fails, simple text fallback might not show without styling adjustments, but user asked for img -->
             </a>
             <nav>
                 <ul>
@@ -25,7 +22,6 @@ export function loadHeader(currentPage) {
     const headerElement = document.createElement('header');
     headerElement.innerHTML = headerHTML;
 
-    // Insert header at the top of the body or into a placeholder
     const placeholder = document.getElementById('header-placeholder');
     if (placeholder) {
         placeholder.appendChild(headerElement);
@@ -33,7 +29,6 @@ export function loadHeader(currentPage) {
         document.body.prepend(headerElement);
     }
 
-    // Set Active State
     const navLinks = headerElement.querySelectorAll('nav a');
     navLinks.forEach(link => {
         if (link.dataset.page === currentPage) {

@@ -1,4 +1,4 @@
-/* Google-like Design System & Corporate Theme */
+/* Google-like Commercial Design System - Refined */
 
 :root {
     /* Colors */
@@ -9,14 +9,14 @@
     --color-corporate-blue: #1A73E8;
     --color-corporate-orange: #EA4335;
     --color-border: #DADCE0;
+    --color-nav-bg: #000000;
 
     /* Typography */
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     
     /* Spacing */
     --container-width: 1200px;
-    --header-height: 64px;
-    --footer-height: 300px; /* Approximate */
+    --header-height: 54px; /* Reduced height request */
 }
 
 * {
@@ -36,9 +36,8 @@ body {
     min-height: 100vh;
 }
 
-/* Common Layout Utilities */
 main {
-    flex: 1; /* Pushes footer to bottom */
+    flex: 1;
     width: 100%;
     margin: 0 auto;
 }
@@ -66,92 +65,114 @@ p {
     margin-bottom: 1rem;
 }
 
-/* --- Header & Navigation --- */
+/* --- Refined Header & Navigation --- */
 header {
-    background-color: var(--color-bg-body);
-    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-nav-bg);
     height: var(--header-height);
     display: flex;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: none; /* No separator requested */
 }
 
 .header-inner {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch; /* Important for full height active states */
     width: 100%;
+    height: 100%;
 }
 
 .logo {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--color-text-primary);
     display: flex;
     align-items: center;
-    gap: 8px;
+    padding-right: 24px;
 }
-.logo span {
-    color: var(--color-corporate-blue);
+.logo img {
+    height: 28px; /* Adjusted for finer navbar */
+    width: auto;
+}
+
+nav {
+    height: 100%;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 8px;
+    gap: 0; /* Remove gap to ensure continuous touch targets if needed, or keep for spacing */
+    height: 100%;
+}
+
+nav li {
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 nav li a {
-    padding: 8px 16px;
-    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: 100%;
     font-size: 14px;
     font-weight: 500;
-    color: var(--color-text-secondary);
+    color: #9AA0A6; /* Light grey for dark mode nav */
+    border-radius: 0; /* Request: No rounding */
+    transition: all 0.2s ease;
 }
 
 nav li a:hover {
-    color: var(--color-corporate-blue);
-    background-color: rgba(26, 115, 232, 0.04);
+    color: #FFFFFF;
+    background-color: rgba(255,255,255,0.1);
 }
 
-/* Active State Logic (To be applied by JS) */
+/* Active Logic: Blue styling from top to bottom */
 nav li a.active {
     background-color: var(--color-corporate-blue);
-    color: #FFFFFF !important; /* White text on blue bg */
+    color: #FFFFFF !important;
 }
 
-/* --- Sub Navbar (used in Thrills) --- */
+/* --- Sub Navbar (Thrills) --- */
 .sub-navbar {
-    background-color: var(--color-bg-surface);
-    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-corporate-blue); /* Requested blue bg */
+    border-bottom: none;
     padding: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .sub-nav-inner {
     display: flex;
     justify-content: center;
-    gap: 32px;
+    gap: 0; /* Continuous block */
 }
 
 .sub-nav-item {
-    padding: 16px 0;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--color-text-secondary);
+    padding: 16px 32px;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
     cursor: pointer;
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .sub-nav-item:hover {
-    color: var(--color-text-primary);
+    color: #FFFFFF;
+    background-color: rgba(255,255,255,0.1);
 }
 
+/* Active Glow Effect */
 .sub-nav-item.active {
-    color: var(--color-corporate-blue);
-    border-bottom-color: var(--color-corporate-blue);
+    color: #FFFFFF;
+    background-color: rgba(255,255,255,0.15);
+    /* Glow effect downwards */
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4); 
+    z-index: 1;
 }
 
 /* --- Footer --- */
@@ -169,41 +190,14 @@ footer {
     gap: 48px;
 }
 
-.footer-col h4 {
-    color: #FFFFFF; /* White for footer headers */
-    font-size: 16px;
-    margin-bottom: 24px;
-}
+.footer-col h4 { color: #FFFFFF; font-size: 16px; margin-bottom: 24px; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 12px; }
+.footer-col ul li a { color: #9AA0A6; font-size: 14px; }
+.footer-col ul li a:hover { color: #FFFFFF; }
+.footer-bottom { border-top: 1px solid #3C4043; margin-top: 48px; padding-top: 24px; display: flex; justify-content: space-between; color: #9AA0A6; font-size: 12px; }
 
-.footer-col ul {
-    list-style: none;
-}
-
-.footer-col ul li {
-    margin-bottom: 12px;
-}
-
-.footer-col ul li a {
-    color: #9AA0A6; /* Google grey for footer links */
-    font-size: 14px;
-}
-
-.footer-col ul li a:hover {
-    color: #FFFFFF;
-}
-
-.footer-bottom {
-    margin-top: 48px;
-    padding-top: 24px;
-    border-top: 1px solid #3C4043;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #9AA0A6;
-    font-size: 12px;
-}
-
-/* --- UI Elements --- */
+/* --- UI Elements & Utilities --- */
 .btn {
     display: inline-block;
     padding: 10px 24px;
@@ -215,100 +209,104 @@ footer {
     transition: background-color 0.2s;
     text-align: center;
 }
+.btn-primary { background-color: var(--color-corporate-blue); color: #FFFFFF; }
+.btn-primary:hover { background-color: #1558B0; }
+.btn-orange { background-color: var(--color-corporate-orange); color: #FFFFFF; }
+.btn-orange:hover { background-color: #C5221F; }
+.btn-secondary { background-color: transparent; color: var(--color-corporate-blue); border: 1px solid var(--color-border); }
 
-.btn-primary {
-    background-color: var(--color-corporate-blue);
-    color: #FFFFFF;
-}
-.btn-primary:hover {
-    background-color: #1558B0; /* Slightly darker */
-}
+/* Color Utilities */
+.bg-blue { background-color: var(--color-corporate-blue); color: #FFFFFF; }
+.bg-orange { background-color: var(--color-corporate-orange); color: #FFFFFF; }
+.bg-dark { background-color: #202124; color: #FFFFFF; }
+.text-white { color: #FFFFFF; }
 
-.btn-secondary {
-    background-color: transparent;
-    color: var(--color-corporate-blue);
-    border: 1px solid var(--color-border);
-}
-.btn-secondary:hover {
-    background-color: rgba(26, 115, 232, 0.04);
-    border-color: var(--color-corporate-blue);
-}
+.section-padding { padding: 64px 0; }
 
-.btn-orange {
-    background-color: var(--color-corporate-orange);
-    color: #FFFFFF;
-}
-.btn-orange:hover {
-    background-color: #C5221F;
-}
-
-/* --- Hero Section Styles --- */
-.hero {
-    padding: 80px 0;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero h1 {
-    font-size: 48px;
-    line-height: 1.2;
-    margin-bottom: 24px;
-    letter-spacing: -0.5px;
-}
-
-.hero p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 32px;
-    color: var(--color-text-secondary);
-}
-
-/* --- Grid Features --- */
-.grid-cols-3 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-    margin-top: 48px;
+/* --- Carousel Styles --- */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 400px; /* Reduced from fullscreen to be "chuli" but not overwhelming */
+    border-radius: 16px;
     margin-bottom: 48px;
 }
 
-.card {
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    padding: 24px;
-    background: #fff;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.card:hover {
-    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
-    transform: translateY(-2px);
-}
-
-.card-icon {
-    width: 48px;
-    height: 48px;
-    background-color: rgba(26, 115, 232, 0.1); /* Light blue bg */
-    border-radius: 8px;
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-corporate-blue);
-    margin-bottom: 16px;
-    font-size: 24px;
+    flex-direction: column;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    padding: 24px;
 }
 
-/* Orange variant for card icon */
-.card-icon.orange {
-    background-color: rgba(234, 67, 53, 0.1);
-    color: var(--color-corporate-orange);
+.carousel-slide.active { opacity: 1; z-index: 2; }
+
+.carousel-nav {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
 }
 
-.card h3 {
-    font-size: 20px;
-    margin-bottom: 12px;
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
+.carousel-dot.active { background-color: #FFFFFF; transform: scale(1.2); }
+
+/* --- Accordion Styles --- */
+.accordion-item {
+    border: 1px solid var(--color-border);
+    margin-bottom: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    background-color: #fff;
+    padding: 16px 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+.accordion-header:hover { background-color: #F8F9FA; }
+
+.accordion-body {
+    background-color: #fff;
+    padding: 0 24px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    color: var(--color-text-secondary);
+}
+
+.accordion-item.active .accordion-body {
+    padding: 16px 24px 24px 24px;
+    max-height: 200px; /* Approximate max height */
+}
+
+.accordion-icon { transition: transform 0.3s; }
+.accordion-item.active .accordion-icon { transform: rotate(180deg); }
+
+/* Grid Refinements */
+.card { border-radius: 12px; border: none; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
