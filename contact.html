@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Project Web</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--color-text-secondary);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #DADCE0;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-corporate-blue);
+            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+        }
+    </style>
+</head>
+
+<body data-page="contact">
+
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <section class="hero">
+            <h1><span style="color: var(--color-corporate-orange);">Contacta</span> con nosotros</h1>
+            <p>Estamos aquí para ayudarte. Envíanos un mensaje.</p>
+        </section>
+
+        <div style="display: flex; gap: 64px; margin-bottom: 80px; flex-wrap: wrap;">
+
+            <!-- Contact Form -->
+            <div style="flex: 2; min-width: 300px;">
+                <form action="#" onsubmit="event.preventDefault(); alert('Mensaje enviado (simulado)');">
+                    <div style="display: flex; gap: 24px;">
+                        <div class="form-group" style="flex: 1;">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" class="form-input" placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" placeholder="tucorreo@ejemplo.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Asunto</label>
+                        <input type="text" class="form-input" placeholder="¿En qué podemos ayudarte?">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Mensaje</label>
+                        <textarea class="form-input" rows="5" placeholder="Escribe tu mensaje aquí..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="min-width: 150px;">Enviar Mensaje</button>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div
+                style="flex: 1; min-width: 250px; background-color: #F8F9FA; padding: 32px; border-radius: 8px; border: 1px solid #DADCE0;">
+                <h3 style="margin-bottom: 24px;">Información</h3>
+
+                <div style="margin-bottom: 24px;">
+                    <h5 style="margin-bottom: 8px; color: var(--color-corporate-blue);">Ubicación</h5>
+                    <p style="font-size: 14px; margin: 0;">Calle Principal 123<br>Ciudad, País</p>
+                </div>
+
+                <div style="margin-bottom: 24px;">
+                    <h5 style="margin-bottom: 8px; color: var(--color-corporate-blue);">Email</h5>
+                    <p style="font-size: 14px; margin: 0;">contacto@projectweb.com</p>
+                </div>
+
+                <div>
+                    <h5 style="margin-bottom: 8px; color: var(--color-corporate-blue);">Social</h5>
+                    <div style="display: flex; gap: 16px; font-size: 20px;">
+                        <a href="#">📷</a>
+                        <a href="#">🐦</a>
+                        <a href="#">💼</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

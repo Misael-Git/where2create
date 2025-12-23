@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thrills | Project Web</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Specific Tab Logic Styles */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body data-page="thrills">
+
+    <div id="header-placeholder"></div>
+
+    <!-- Sub Navbar Specific for Thrills -->
+    <div class="sub-navbar">
+        <div class="container sub-nav-inner">
+            <div class="sub-nav-item active" onclick="switchTab('rides')">Rides Concepts</div>
+            <div class="sub-nav-item" onclick="switchTab('coasters')">Coasters and Parks</div>
+        </div>
+    </div>
+
+    <main class="container" style="padding-top: 48px;">
+
+        <!-- Tab 1: Rides Concepts -->
+        <section id="tab-rides" class="tab-content active">
+            <div class="hero" style="padding-top: 0; text-align: left;">
+                <h2 style="color: var(--color-corporate-blue);">Rides Concepts</h2>
+                <p>Explorando el futuro del entretenimiento y las emociones fuertes. Diseños conceptuales que desafían
+                    la gravedad.</p>
+            </div>
+
+            <div class="grid-cols-3">
+                <div class="card">
+                    <div class="card-icon">🎢</div>
+                    <h3>Concept Alpha</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend
+                        gravida.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <h3>Zero Gravity</h3>
+                    <p>Proin eget tortor risus. Curabitur aliquet quam id dui posuere blandit. Vestibulum ac diam sit
+                        amet.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎡</div>
+                    <h3>Hyper Loop</h3>
+                    <p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla porttitor accumsan
+                        tincidunt.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 2: Coasters and Parks -->
+        <section id="tab-coasters" class="tab-content">
+            <div class="hero" style="padding-top: 0; text-align: left;">
+                <h2 style="color: var(--color-corporate-orange);">Coasters and Parks</h2>
+                <p>Nuestras implementaciones en parques reales alrededor del mundo. La ingeniería detrás de la
+                    diversión.</p>
+            </div>
+
+            <div class="grid-cols-3">
+                <div class="card">
+                    <div class="card-icon orange">🏔️</div>
+                    <h3>Mountain Peak</h3>
+                    <p>Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon orange">🎠</div>
+                    <h3>Grand Park</h3>
+                    <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur arcu erat, accumsan id
+                        imperdiet.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon orange">🌊</div>
+                    <h3>Aqua Plunge</h3>
+                    <p>Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Vivamus suscipit tortor
+                        eget.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="js/main.js"></script>
+    <script>
+        // Simple inline script for tab content switching
+        function switchTab(tabName) {
+            // Update Tab headers
+            const navItems = document.querySelectorAll('.sub-nav-item');
+            navItems.forEach(item => {
+                if (item.innerText.toLowerCase().includes(tabName === 'rides' ? 'rides' : 'coasters')) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+
+            // Update Content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById('tab-' + tabName).classList.add('active');
+        }
+
+        // Expose to window for onclick
+        window.switchTab = switchTab;
+    </script>
+</body>
+
+</html>
