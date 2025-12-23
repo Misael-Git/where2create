@@ -1,87 +1,110 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Project Web</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link href="dist/output.css" rel="stylesheet"> <!-- Now pointing to compiled CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<body data-page="index">
 
-    <!-- Header injected here -->
+<body data-page="index" class="font-sans antialiased text-corporate-dark bg-white flex flex-col min-h-screen">
+
     <div id="header-placeholder"></div>
 
-    <main>
+    <main class="w-full">
         <!-- Carousel Section -->
-        <section class="container" style="margin-top: 24px;">
-            <div id="home-carousel" class="carousel-container">
-                <!-- Slide 1 -->
-                <div class="carousel-slide active bg-blue text-white">
-                    <h1 style="font-size: 48px; color: #fff;">Experiencias Digitales</h1>
-                    <p style="color: #E8EAED; font-size: 20px;">Diseño comercial, limpio y efectivo.</p>
-                    <a href="thrills.html" class="btn btn-orange">Ver Proyectos</a>
-                </div>
-                <!-- Slide 2 -->
-                <div class="carousel-slide bg-dark text-white">
-                    <h1 style="font-size: 48px; color: #fff;">Innovación Constante</h1>
-                    <p style="color: #9AA0A6; font-size: 20px;">Tecnología web avanzada.</p>
-                    <a href="apps.html" class="btn btn-primary">Descargar Apps</a>
-                </div>
-                <!-- Slide 3 -->
-                <div class="carousel-slide bg-orange text-white">
-                    <h1 style="font-size: 48px; color: #fff;">Únete al Equipo</h1>
-                    <p style="color: #fff; font-size: 20px;">Estamos buscando talento.</p>
-                    <a href="contact.html" class="btn" style="background:#fff; color: var(--color-corporate-orange);">Contactar</a>
+        <section class="max-w-[1200px] mx-auto px-6 mt-6">
+            <div id="home-carousel" class="relative overflow-hidden w-full h-[350px] rounded-xl bg-gray-100">
+                <!-- Slides -->
+                <div
+                    class="carousel-slide absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-corporate-blue text-white opacity-0 transition-opacity duration-500 active:opacity-100 active:z-10">
+                    <h1 class="text-5xl font-medium mb-4">Experiencias Digitales</h1>
+                    <p class="text-white/80 text-xl mb-6">Diseño comercial, limpio y efectivo.</p>
+                    <a href="thrills.html"
+                        class="inline-block px-6 py-2 rounded bg-corporate-orange text-white font-medium hover:bg-red-600 transition-colors">Ver
+                        Proyectos</a>
                 </div>
 
-                <div class="carousel-nav"></div>
+                <div
+                    class="carousel-slide absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-black text-white opacity-0 transition-opacity duration-500">
+                    <h1 class="text-5xl font-medium mb-4">Innovación Constante</h1>
+                    <p class="text-gray-400 text-xl mb-6">Tecnología web avanzada.</p>
+                    <a href="apps.html"
+                        class="inline-block px-6 py-2 rounded bg-corporate-blue text-white font-medium hover:bg-blue-700 transition-colors">Descargar
+                        Apps</a>
+                </div>
+
+                <div
+                    class="carousel-slide absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-corporate-orange text-white opacity-0 transition-opacity duration-500">
+                    <h1 class="text-5xl font-medium mb-4">Únete al Equipo</h1>
+                    <p class="text-white text-xl mb-6">Estamos buscando talento.</p>
+                    <a href="contact.html"
+                        class="inline-block px-6 py-2 rounded bg-white text-corporate-orange font-medium hover:bg-gray-100 transition-colors">Contactar</a>
+                </div>
+
+                <div class="carousel-nav absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20"></div>
             </div>
         </section>
 
         <!-- Features Grid -->
-        <section class="container section-padding">
-            <h2 style="text-align: center; margin-bottom: 48px;">¿Qué ofrecemos?</h2>
-            
-            <div class="grid-cols-3">
-                <div class="card">
-                    <div class="card-icon"><span>★</span></div>
-                    <h3>Thrills & Rides</h3>
-                    <p>Diseños conceptuales que desafían la gravedad.</p>
-                    <a href="thrills.html" style="color: var(--color-corporate-blue); font-weight: 500; margin-top: auto;">Ver más →</a>
+        <section class="max-w-[1200px] mx-auto px-6 py-16">
+            <h2 class="text-3xl font-medium text-center mb-12">¿Qué ofrecemos?</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow flex flex-col items-start bg-white">
+                    <div
+                        class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-corporate-blue text-xl mb-4">
+                        ★</div>
+                    <h3 class="text-xl font-medium mb-3">Thrills & Rides</h3>
+                    <p class="text-gray-500 mb-6 flex-1">Diseños conceptuales que desafían la gravedad.</p>
+                    <a href="thrills.html" class="text-corporate-blue font-medium hover:underline">Ver más →</a>
                 </div>
 
-                <div class="card">
-                    <div class="card-icon orange"><span>♫</span></div>
-                    <h3>Music Hub</h3>
-                    <p>Experiencias auditivas inmersivas.</p>
-                    <a href="music.html" style="color: var(--color-corporate-orange); font-weight: 500; margin-top: auto;">Escuchar →</a>
+                <!-- Card 2 -->
+                <div
+                    class="p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow flex flex-col items-start bg-white">
+                    <div
+                        class="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center text-corporate-orange text-xl mb-4">
+                        ♫</div>
+                    <h3 class="text-xl font-medium mb-3">Music Hub</h3>
+                    <p class="text-gray-500 mb-6 flex-1">Experiencias auditivas inmersivas.</p>
+                    <a href="music.html" class="text-corporate-orange font-medium hover:underline">Escuchar →</a>
                 </div>
 
-                <div class="card">
-                    <div class="card-icon"><span>🎮</span></div>
-                    <h3>Gaming Zone</h3>
-                    <p>Juegos sin descargas, directo en tu navegador.</p>
-                    <a href="games.html" style="color: var(--color-corporate-blue); font-weight: 500; margin-top: auto;">Jugar →</a>
+                <!-- Card 3 -->
+                <div
+                    class="p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow flex flex-col items-start bg-white">
+                    <div
+                        class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-corporate-blue text-xl mb-4">
+                        🎮</div>
+                    <h3 class="text-xl font-medium mb-3">Gaming Zone</h3>
+                    <p class="text-gray-500 mb-6 flex-1">Juegos sin descargas, directo en tu navegador.</p>
+                    <a href="games.html" class="text-corporate-blue font-medium hover:underline">Jugar →</a>
                 </div>
             </div>
         </section>
 
         <!-- Special Blue Section -->
-        <section class="bg-blue section-padding">
-            <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
-                <div style="flex: 1; padding-right: 48px;">
-                    <h2 style="color: #fff;">Tecnología para el Futuro</h2>
-                    <p style="color: #E8EAED; font-size: 18px;">
-                        Creamos soluciones que escalan con tu negocio. 
+        <section class="bg-corporate-blue py-20 text-white">
+            <div class="max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="flex-1">
+                    <h2 class="text-3xl font-medium mb-4 text-white">Tecnología para el Futuro</h2>
+                    <p class="text-blue-100 text-lg mb-6 leading-relaxed">
+                        Creamos soluciones que escalan con tu negocio.
                         Desde aplicaciones móviles hasta plataformas web complejas.
                     </p>
-                    <a href="apps.html" class="btn btn-orange" style="margin-top: 16px;">Ver Soluciones</a>
+                    <a href="apps.html"
+                        class="inline-block px-6 py-3 rounded bg-corporate-orange text-white font-medium hover:bg-red-600 transition-colors">Ver
+                        Soluciones</a>
                 </div>
-                <div style="flex: 1; display: flex; justify-content: flex-end;">
-                     <div style="width: 300px; height: 200px; background: rgba(255,255,255,0.1); border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: #fff;">
-                       [Graphic Element]
-                     </div>
+                <!-- Abstract Graphic Placeholder -->
+                <div
+                    class="w-full md:w-80 h-48 bg-white/10 rounded-2xl border border-white/20 flex items-center justify-center text-white/50">
+                    Graphic UI
                 </div>
             </div>
         </section>
@@ -91,4 +114,5 @@
     <div id="footer-placeholder"></div>
     <script type="module" src="js/main.js"></script>
 </body>
+
 </html>

@@ -5,37 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Mí | Project Web</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link href="dist/output.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
-<body data-page="about">
+<body data-page="about" class="font-sans antialiased text-corporate-dark bg-white flex flex-col min-h-screen">
 
     <div id="header-placeholder"></div>
 
-    <main class="container">
-        <section class="hero">
-            <h1>Sobre <span style="color: var(--color-corporate-blue);">Nosotros</span></h1>
+    <main class="max-w-[1200px] mx-auto px-6 w-full py-12">
+        <section class="mb-16">
+            <h1 class="text-4xl font-medium mb-4">Sobre <span class="text-corporate-blue">Nosotros</span></h1>
         </section>
 
-        <div style="display: flex; gap: 48px; align-items: center; margin-bottom: 64px; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 300px;">
+        <div class="flex flex-col md:flex-row gap-12 items-center">
+            <div class="w-full md:w-1/2">
                 <div
-                    style="aspect-ratio: 16/9; background-color: #EEE; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #BBB; font-size: 24px;">
+                    class="aspect-video bg-gray-100 rounded-2xl flex items-center justify-center text-gray-300 text-2xl border border-gray-200">
                     [Profile / Team Image]
                 </div>
             </div>
-            <div style="flex: 1;">
-                <h2 style="font-size: 24px; margin-bottom: 16px;">Nuestra Misión</h2>
-                <p style="font-size: 16px; margin-bottom: 16px;">
+            <div class="w-full md:w-1/2">
+                <h2 class="text-2xl font-medium mb-4">Nuestra Misión</h2>
+                <p class="text-gray-500 leading-relaxed mb-4">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor lectus nibh.
                     Proin eget tortor risus. Vivamus suscipit tortor eget felis porttitor volutpat.
                 </p>
-                <p style="font-size: 16px; margin-bottom: 24px;">
+                <p class="text-gray-500 leading-relaxed mb-8">
                     Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
                     Nulla quis lorem ut libero malesuada feugiat.
                 </p>
-                <a href="contact.html" class="btn btn-secondary">Ponte en contacto</a>
+                <a href="contact.html"
+                    class="inline-block px-6 py-2 border border-gray-300 rounded text-corporate-blue font-medium hover:bg-blue-50 hover:border-corporate-blue transition-colors">Ponte
+                    en contacto</a>
             </div>
         </div>
     </main>

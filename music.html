@@ -5,53 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music | Project Web</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link href="dist/output.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
-<body data-page="music">
+<body data-page="music" class="font-sans antialiased text-corporate-dark bg-white flex flex-col min-h-screen">
 
     <div id="header-placeholder"></div>
 
-    <main class="container">
-        <section class="hero">
-            <h1>Descubre nuevos <span style="color: var(--color-corporate-orange);">Sonidos</span></h1>
-            <p>Una colección curada de pistas y experiencias auditivas inmersivas.</p>
+    <main class="max-w-[1200px] mx-auto px-6 w-full py-12">
+        <section class="text-center mb-16">
+            <h1 class="text-4xl font-medium mb-4">Descubre nuevos <span class="text-corporate-orange">Sonidos</span>
+            </h1>
+            <p class="text-gray-500 text-lg">Una colección curada de pistas y experiencias auditivas inmersivas.</p>
         </section>
 
-        <div
-            style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 32px; margin-bottom: 80px;">
-            <!-- Music items -->
-            <div style="text-align: left;">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <!-- Item 1 -->
+            <div class="group cursor-pointer">
                 <div
-                    style="background: #f1f3f4; height: 200px; border-radius: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; font-size: 48px; color: #dadce0;">
+                    class="aspect-square bg-gray-100 rounded-lg mb-4 flex items-center justify-center text-4xl text-gray-300 group-hover:bg-gray-200 transition-colors">
                     ♪</div>
-                <h3 style="font-size: 16px; margin-bottom: 4px;">Album Concept One</h3>
-                <p style="font-size: 14px; margin: 0;">Artist Name</p>
+                <h3 class="font-medium text-gray-900 truncate">Album Concept One</h3>
+                <p class="text-sm text-gray-500">Artist Name</p>
             </div>
 
-            <div style="text-align: left;">
+            <!-- Item 2 -->
+            <div class="group cursor-pointer">
                 <div
-                    style="background: #f1f3f4; height: 200px; border-radius: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; font-size: 48px; color: #dadce0;">
+                    class="aspect-square bg-gray-100 rounded-lg mb-4 flex items-center justify-center text-4xl text-gray-300 group-hover:bg-blue-50 group-hover:text-corporate-blue transition-colors">
                     ♫</div>
-                <h3 style="font-size: 16px; margin-bottom: 4px;">Symphony in Blue</h3>
-                <p style="font-size: 14px; margin: 0;">Project Web Orchestra</p>
+                <h3 class="font-medium text-gray-900 truncate">Symphony in Blue</h3>
+                <p class="text-sm text-gray-500">Project Web Orchestra</p>
             </div>
 
-            <div style="text-align: left;">
+            <!-- Item 3 -->
+            <div class="group cursor-pointer">
                 <div
-                    style="background: #f1f3f4; height: 200px; border-radius: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; font-size: 48px; color: #dadce0;">
+                    class="aspect-square bg-gray-100 rounded-lg mb-4 flex items-center justify-center text-4xl text-gray-300 group-hover:bg-orange-50 group-hover:text-corporate-orange transition-colors">
                     🎧</div>
-                <h3 style="font-size: 16px; margin-bottom: 4px;">Electronic Beats</h3>
-                <p style="font-size: 14px; margin: 0;">DJ Corporate</p>
+                <h3 class="font-medium text-gray-900 truncate">Electronic Beats</h3>
+                <p class="text-sm text-gray-500">DJ Corporate</p>
             </div>
 
-            <div style="text-align: left;">
+            <!-- Item 4 -->
+            <div class="group cursor-pointer">
                 <div
-                    style="background: #f1f3f4; height: 200px; border-radius: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; font-size: 48px; color: #dadce0;">
+                    class="aspect-square bg-gray-100 rounded-lg mb-4 flex items-center justify-center text-4xl text-gray-300 group-hover:bg-gray-200 transition-colors">
                     🔊</div>
-                <h3 style="font-size: 16px; margin-bottom: 4px;">Soundscapes</h3>
-                <p style="font-size: 14px; margin: 0;">Ambient Labs</p>
+                <h3 class="font-medium text-gray-900 truncate">Soundscapes</h3>
+                <p class="text-sm text-gray-500">Ambient Labs</p>
             </div>
         </div>
 
