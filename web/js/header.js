@@ -5,7 +5,7 @@ export function loadHeader(currentPage) {
             <!-- Logo (Left) -->
             <div class="flex justify-start">
                 <a href="/" class="flex items-center gap-2 h-full py-1 z-50">
-                    <img src="/img/LOGO.png" alt="Logo" class="h-8 w-auto object-contain" onerror="this.onerror=null; this.src=''; this.innerHTML='<span class=\'font-bold text-lg text-white\'><span class=\'text-corporate-blue\'>W2C</span></span>';">
+                    <img src="/img/LOGO.png" alt="Logo" class="h-8 md:h-[26px] w-auto object-contain" onerror="this.onerror=null; this.src=''; this.innerHTML='<span class=\'font-bold text-lg text-white\'><span class=\'text-corporate-blue\'>W2C</span></span>';">
                 </a>
             </div>
 
@@ -51,7 +51,7 @@ export function loadHeader(currentPage) {
     `;
 
     const headerElement = document.createElement('header');
-    headerElement.className = "sticky top-0 z-50 bg-black h-[50px] w-full border-b border-gray-900";
+    headerElement.className = "sticky top-0 z-50 bg-black h-[40px] w-full"; //  border-b border-gray-900
     headerElement.innerHTML = headerHTML;
 
     // Insertion Logic

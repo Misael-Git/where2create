@@ -62,11 +62,11 @@ export function loadCarousel(placeholderId, currentPageId) {
 
     const carouselHTML = `
         <section class="w-full md:max-w-[1240px] md:mx-auto md:px-6 ${isHome ? 'mt-0 md:mt-8' : 'mt-0'} mb-0 md:mb-16">
-            <div id="dynamic-carousel" class="relative overflow-hidden w-full h-[85vh] md:h-[480px] md:rounded-xl bg-black">
+            <div id="dynamic-carousel" class="relative overflow-hidden w-full h-[85vh] md:h-[480px] md:rounded-xl bg-black group">
                 ${filteredSlides.map((slide, index) => `
                     <div class="carousel-slide ${index === 0 ? 'active opacity-100 z-10' : 'opacity-0 z-0'} absolute inset-0 flex flex-col ${slide.order} w-full h-full transition-opacity duration-700">
-                        <div class="absolute inset-0 w-full h-full md:relative md:w-1/2">
-                            <img src="${slide.image}" alt="${slide.title}" class="w-full h-full object-cover" loading="${index === 0 ? 'eager' : 'lazy'}">
+                        <div class="absolute inset-0 w-full h-full md:relative md:w-1/2 overflow-hidden">
+                            <img src="${slide.image}" alt="${slide.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102" loading="${index === 0 ? 'eager' : 'lazy'}">
                         </div>
                         <div class="relative mt-auto h-[40%] md:h-full md:mt-0 md:w-1/2 ${slide.bgClass} flex flex-col justify-center items-start px-8 md:px-12 text-left carousel-overlay-fade">
                             <h2 class="text-white text-4xl font-medium mb-4">${slide.title}</h2>
