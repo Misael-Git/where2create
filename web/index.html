@@ -7,6 +7,7 @@
     <title>Home | W2C</title>
     <link href="dist/output.css" rel="stylesheet"> <!-- Now pointing to compiled CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/img/LOGO.png">
 </head>
 
 <body data-page="index" class="font-sans antialiased text-corporate-dark bg-white flex flex-col min-h-screen">
@@ -14,99 +15,7 @@
     <div id="header-placeholder"></div>
 
     <main class="w-full">
-        <!-- Carousel Section -->
-        <section class="w-full md:max-w-[1200px] md:mx-auto md:px-6 md:mt-6">
-            <div id="home-carousel"
-                class="relative overflow-hidden w-full h-[85vh] md:h-[450px] md:rounded-xl bg-black md:border md:border-gray-800">
-
-                <!-- Slide 1: Thrills (Image LEFT, Black BG) -->
-                <div
-                    class="carousel-slide active absolute inset-0 flex w-full h-full opacity-100 z-10 transition-opacity duration-700">
-                    <div class="w-1/2 h-full relative">
-                        <!-- LCP Optimization: Eager load -->
-                        <img src="img/kraken.webp" alt="Thrills The Kraken" class="w-full h-full object-cover"
-                            fetchpriority="high" loading="eager">
-                        <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-black/80 md:hidden"></div>
-                    </div>
-                    <div class="w-1/2 h-full bg-black flex flex-col justify-center items-start px-12 text-left">
-                        <span
-                            class="text-corporate-blue font-bold text-sm tracking-wider mb-2 uppercase">Featured</span>
-                        <h2 class="text-white text-4xl font-medium mb-4">Thrills & Rides</h2>
-                        <p class="text-gray-400 text-lg mb-8">Gravity-defying concepts and innovative park designs.</p>
-                        <a href="thrills/"
-                            class="px-8 py-3 bg-corporate-blue text-white rounded font-medium hover:bg-blue-600 transition-colors">Explore
-                            Thrills</a>
-                    </div>
-                </div>
-
-                <!-- Slide 2: Games (Image RIGHT, Orange BG) -->
-                <div
-                    class="carousel-slide absolute inset-0 flex flex-row-reverse w-full h-full opacity-0 transition-opacity duration-700">
-                    <div class="w-1/2 h-full relative">
-                        <img src="img/impostor.webp" alt="Games" class="w-full h-full object-cover" loading="lazy">
-                    </div>
-                    <div
-                        class="w-1/2 h-full bg-corporate-orange flex flex-col justify-center items-start px-12 text-left">
-                        <span class="text-white/80 font-bold text-sm tracking-wider mb-2 uppercase">Play</span>
-                        <h2 class="text-white text-4xl font-medium mb-4">Games</h2>
-                        <p class="text-white/90 text-lg mb-8">Play directly in your browser. No downloads required.</p>
-                        <a href="games/"
-                            class="px-8 py-3 bg-white text-corporate-orange rounded font-medium hover:bg-gray-100 transition-colors">Play
-                            Games</a>
-                    </div>
-                </div>
-
-                <!-- Slide 3: Apps (Image LEFT, Blue BG) - Updated Image to impostor.webp -->
-                <div
-                    class="carousel-slide absolute inset-0 flex w-full h-full opacity-0 transition-opacity duration-700">
-                    <div class="w-1/2 h-full relative">
-                        <img src="img/apps.webp" alt="Apps" class="w-full h-full object-cover" loading="lazy">
-                    </div>
-                    <div
-                        class="w-1/2 h-full bg-corporate-blue flex flex-col justify-center items-start px-12 text-left">
-                        <span class="text-white/80 font-bold text-sm tracking-wider mb-2 uppercase">Tools</span>
-                        <h2 class="text-white text-4xl font-medium mb-4">Apps Suite</h2>
-                        <p class="text-blue-100 text-lg mb-8">Productivity software designed for the modern web.</p>
-                        <a href="apps/"
-                            class="px-8 py-3 bg-white text-corporate-blue rounded font-medium hover:bg-gray-100 transition-colors">Get
-                            Apps</a>
-                    </div>
-                </div>
-
-                <!-- Slide 4: About (Image RIGHT, Black BG, Orange Button) -->
-                <div
-                    class="carousel-slide absolute inset-0 flex flex-row-reverse w-full h-full opacity-0 transition-opacity duration-700">
-                    <div class="w-1/2 h-full relative">
-                        <img src="img/bebe.webp" alt="About" class="w-full h-full object-cover" loading="lazy">
-                    </div>
-                    <div class="w-1/2 h-full bg-black flex flex-col justify-center items-start px-12 text-left">
-                        <span class="text-gray-500 font-bold text-sm tracking-wider mb-2 uppercase">Mission</span>
-                        <h2 class="text-white text-4xl font-medium mb-4">About</h2>
-                        <p class="text-gray-400 text-lg mb-8">Discover the story and mission behind the project.</p>
-                        <a href="about/"
-                            class="px-8 py-3 bg-corporate-orange text-white rounded font-medium hover:bg-red-600 transition-colors">Read
-                            More</a>
-                    </div>
-                </div>
-
-                <!-- Navigation Controls -->
-                <button id="prev-btn"
-                    class="absolute top-1/2 left-4 -translate-y-1/2 bg-black/50 hover:bg-black/90 text-white p-3 rounded-full z-30 transition-all focus:outline-none cursor-pointer">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
-                        </path>
-                    </svg>
-                </button>
-                <button id="next-btn"
-                    class="absolute top-1/2 right-4 -translate-y-1/2 bg-black/50 hover:bg-black/90 text-white p-3 rounded-full z-30 transition-all focus:outline-none cursor-pointer">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
-
-                <div class="carousel-nav absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-30"></div>
-            </div>
-        </section>
+        <div id="carousel-placeholder"></div>
 
     </main>
 

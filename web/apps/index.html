@@ -1,55 +1,72 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apps | Project Web</title>
+    <title>Apps | W2C</title>
     <link href="../dist/output.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/img/LOGO.png">
 </head>
 
 <body data-page="apps" class="font-sans antialiased text-corporate-dark bg-white flex flex-col min-h-screen">
 
     <div id="header-placeholder"></div>
 
-    <main class="max-w-[1200px] mx-auto px-6 w-full py-12">
-        <section class="mb-16 text-center md:text-left">
-            <h1 class="text-4xl font-medium mb-4">Apps & <span class="text-corporate-blue">Tools</span></h1>
-        </section>
+    <main class="w-full">
+        <!-- Standardized Typography Header -->
+        <section class="max-w-[1200px] mx-auto px-6 py-12">
+            <div class="mb-16 text-center md:text-left">
+                <h1 class="text-4xl font-medium mb-4">Apps & <span class="text-corporate-blue">Tools</span></h1>
+            </div>
 
-        <div class="flex flex-col items-center text-center gap-12 mb-16">
-            <h2 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
-                Productivity,<br><span class="text-corporate-orange">for the modern web.</span>
-            </h2>
-        </div>
+            <div class="flex flex-col items-center text-center gap-12 mb-16">
+                <!-- Big Text -->
+                <h2 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                    Productivity,<br><span class="text-corporate-orange">for the modern web.</span>
+                </h2>
+                <p class="text-gray-400 mt-6 text-lg max-w-2xl">( High performance tools that live in your tab. )</p>
+            </div>
 
-        <!-- Coming Soon Section -->
-        <section>
-            <h3 class="text-2xl font-medium text-center text-gray-400 uppercase tracking-widest mb-12">Coming Soon</h3>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Standardized Grid (Kraken Style) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1200px] mx-auto mb-16">
                 <!-- App 1: Fill and Sign -->
-                <div
-                    class="border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow bg-gray-50 flex flex-col items-center text-center">
+                <div class="group relative overflow-hidden rounded-2xl bg-black h-[400px] shadow-lg">
+                    <img src="../img/apps.webp" alt="Fill and Sign"
+                        class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90">
+                    </div>
                     <div
-                        class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-3xl shadow-sm mb-6">
-                        📄</div>
-                    <h3 class="text-xl font-bold mb-2">Fill and Sign</h3>
-                    <p class="text-gray-500">The simplest free PDF editor.</p>
+                        class="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                        <span
+                            class="text-corporate-orange font-bold tracking-wider text-xs uppercase mb-2 block">UTILITY</span>
+                        <h3 class="text-white text-3xl font-bold mb-3">Fill and Sign</h3>
+                        <a href="#"
+                            class="text-white border-b border-corporate-orange pb-1 hover:text-corporate-orange transition-colors">Apply
+                            Soon</a>
+                    </div>
                 </div>
 
                 <!-- App 2: Web 2 App -->
-                <div
-                    class="border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow bg-gray-50 flex flex-col items-center text-center">
+                <div class="group relative overflow-hidden rounded-2xl bg-black h-[400px] shadow-lg">
+                    <div class="w-full h-full bg-blue-900/20 flex items-center justify-center text-8xl">🌐</div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90">
+                    </div>
                     <div
-                        class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-3xl shadow-sm mb-6">
-                        🌐</div>
-                    <h3 class="text-xl font-bold mb-2">Web 2 App</h3>
-                    <p class="text-gray-500">Convert any web into an app.</p>
+                        class="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                        <span
+                            class="text-corporate-blue font-bold tracking-wider text-xs uppercase mb-2 block">DEVELOPMENT</span>
+                        <h3 class="text-white text-3xl font-bold mb-3">Web 2 App</h3>
+                        <a href="#"
+                            class="text-white border-b border-corporate-blue pb-1 hover:text-corporate-blue transition-colors">Apply
+                            Soon</a>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <div id="carousel-placeholder"></div>
     </main>
 
     <div id="footer-placeholder"></div>

@@ -10,6 +10,7 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="icon" type="image/png" href="/img/LOGO.png">
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
@@ -39,28 +40,82 @@
 
     <main class="w-full flex-1">
 
-        <!-- SECTION 1: Coasters & Parks Map -->
-        <section class="max-w-[1200px] mx-auto px-6 mt-12 mb-16">
-            <!-- Typography Style: Small H1 left, Big text below -->
-            <div class="mb-12 text-center md:text-left">
-                <h1 class="text-4xl font-medium mb-4">Thrills <span class="text-corporate-blue">&amp; Rides</span></h1>
-            </div>
+        <!-- SECTION 1: Ride Concepts -->
+        <section class="bg-white py-16">
 
-            <div class="text-center md:text-left mb-8">
-                <h2 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
-                    Real locations,<br><span class="text-gray-500">unreal experiences.</span>
-                </h2>
+
+            <div class="max-w-[1200px] mx-auto px-6">
+                <!-- Typography Style: Small H1 left, Big text below -->
+                <div class="mb-12 text-center md:text-left">
+                    <h1 class="text-4xl font-medium mb-4">Thrills <span class="text-corporate-blue">&amp; Rides</span>
+                    </h1>
+                </div>
+                <div class="mb-12 text-center md:text-left">
+                    <h2 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                        Conceptual designs<br><span class="text-gray-500">that push boundaries.</span>
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Concept 1: The Kraken -->
+                    <div class="group relative overflow-hidden rounded-2xl bg-black h-[400px] shadow-lg">
+                        <img src="../img/kraken.webp" alt="The Kraken"
+                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90">
+                        </div>
+                        <div
+                            class="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="text-corporate-blue font-bold tracking-wider text-xs uppercase mb-2 block">DEEP
+                                SEA</span>
+                            <h3 class="text-white text-3xl font-bold mb-3">The Kraken</h3>
+                            <a href="kraken/"
+                                class="text-white border-b border-corporate-blue pb-1 hover:text-corporate-blue transition-colors">View
+                                Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Concept 2: The Mermaid -->
+                    <div class="group relative overflow-hidden rounded-2xl bg-black h-[400px] shadow-lg">
+                        <img src="../img/mermaid.webp" alt="The Mermaid"
+                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90">
+                        </div>
+                        <div
+                            class="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                            <span
+                                class="text-corporate-orange font-bold tracking-wider text-xs uppercase mb-2 block">DEEP
+                                SEA</span>
+                            <h3 class="text-white text-3xl font-bold mb-3">The Mermaid</h3>
+                            <a href="mermaid/"
+                                class="text-white border-b border-corporate-orange pb-1 hover:text-corporate-orange transition-colors">View
+                                Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-[1200px] mx-auto px-6 mt-12 mb-16">
+
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-6">
+                <div class="text-center md:text-left">
+                    <h2 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                        Real locations,<br><span class="text-gray-500">unreal experiences.</span>
+                    </h2>
+                </div>
+                <div class="text-center md:text-right">
+                    <a href="http://coaster.where2create.com" target="_blank"
+                        class="inline-block px-8 py-4 bg-corporate-blue text-white rounded-lg font-bold text-lg hover:bg-blue-600 transition-all shadow-lg hover:scale-105 active:scale-95">
+                        Compare Prices &amp; Stats
+                    </a>
+                </div>
             </div>
 
             <!-- Map: Mobile height reduced to ~375px (3/4 of 500), Desktop fixed 500px -->
             <div id="map"
                 class="w-full h-[375px] md:h-[500px] rounded-2xl z-0 shadow-lg border border-gray-200 overflow-hidden mb-8">
-            </div>
-
-            <div class="text-center md:text-left">
-                <a href="http://coaster.where2create.com" target="_blank"
-                    class="inline-block px-8 py-3 bg-corporate-blue text-white rounded font-medium hover:bg-blue-600 transition-colors">Discover
-                    More</a>
             </div>
 
             <script>
@@ -86,58 +141,7 @@
             </script>
         </section>
 
-        <!-- SECTION 2: Ride Concepts -->
-        <section class="bg-white py-16 border-t border-gray-200">
-            <div class="max-w-[1200px] mx-auto px-6">
-                <div class="mb-12 text-center md:text-left">
-                    <h2 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
-                        Conceptual designs<br><span class="text-gray-500">that push boundaries.</span>
-                    </h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Concept 1: The Kraken -->
-                    <div class="group relative overflow-hidden rounded-2xl bg-black h-[400px] shadow-lg">
-                        <img src="../img/kraken.webp" alt="The Kraken"
-                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90">
-                        </div>
-                        <div
-                            class="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                            <span class="text-corporate-blue font-bold tracking-wider text-xs uppercase mb-2 block">Deep
-                                Sea Coaster</span>
-                            <h3 class="text-white text-3xl font-bold mb-3">The Kraken</h3>
-                            <p class="text-gray-300 mb-6">A deep dive into the unknown. Speed and darkness.</p>
-                            <a href="kraken/"
-                                class="text-white border-b border-corporate-blue pb-1 hover:text-corporate-blue transition-colors">View
-                                Details</a>
-                        </div>
-                    </div>
-
-                    <!-- Concept 2: The Mermaid -->
-                    <div class="group relative overflow-hidden rounded-2xl bg-black h-[400px] shadow-lg">
-                        <img src="../img/mermaid.webp" alt="The Mermaid"
-                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90">
-                        </div>
-                        <div
-                            class="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                            <span
-                                class="text-corporate-orange font-bold tracking-wider text-xs uppercase mb-2 block">Fantasy
-                                Ride</span>
-                            <h3 class="text-white text-3xl font-bold mb-3">The Mermaid</h3>
-                            <p class="text-gray-300 mb-6">Elegance and mythology in a smooth, enchanting ride.</p>
-                            <a href="mermaid/"
-                                class="text-white border-b border-corporate-orange pb-1 hover:text-corporate-orange transition-colors">View
-                                Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <div id="carousel-placeholder"></div>
     </main>
 
     <div id="footer-placeholder"></div>

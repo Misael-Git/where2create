@@ -11,7 +11,7 @@ export function loadHeader(currentPage) {
 
             <!-- Desktop Nav (Center) -->
             <nav class="hidden md:flex justify-center h-full">
-                <ul class="flex h-full items-center gap-0">
+                <ul class="flex h-full items-stretch gap-0">
                     <li><a href="/" data-page="index" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Home</a></li>
                     <li><a href="/thrills/" data-page="thrills" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Thrills</a></li>
                     <li><a href="/games/" data-page="games" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Games</a></li>

@@ -13,6 +13,17 @@
     .h-header {
         height: 50px;
     }
+
+    .bg-nav-active {
+        background: linear-gradient(to top, #FFFFFF 0%, #1A73E8 15%, #1A73E8 100%);
+    }
+
+    .carousel-overlay-fade {
+        @media (max-width: 767px) {
+            mask-image: linear-gradient(to bottom, transparent, black 15%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%);
+        }
+    }
 }
 
 /* Custom Component Logic */

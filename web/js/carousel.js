@@ -10,18 +10,6 @@ export function initCarousel(carouselId) {
     let currentIndex = 0;
     let intervalId;
 
-    // Create dots if not manually created
-    if (dotsContainer && dotsContainer.children.length === 0) {
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.className = 'w-3 h-3 rounded-full bg-white/30 cursor-pointer hover:bg-white transition-colors';
-            if (index === 0) dot.classList.replace('bg-white/30', 'bg-white');
-
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
-        });
-    }
-
     // Button Listeners
     if (prevBtn) prevBtn.addEventListener('click', () => {
         prevSlide();
@@ -44,17 +32,6 @@ export function initCarousel(carouselId) {
                 slide.classList.remove('opacity-100', 'z-10');
             }
         });
-
-        if (dotsContainer) {
-            const dots = dotsContainer.querySelectorAll('div');
-            dots.forEach((dot, index) => {
-                if (index === currentIndex) {
-                    dot.classList.replace('bg-white/30', 'bg-white');
-                } else {
-                    dot.classList.replace('bg-white', 'bg-white/30');
-                }
-            });
-        }
     }
 
     function goToSlide(index) {
