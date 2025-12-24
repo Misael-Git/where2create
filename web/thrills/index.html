@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thrills | Project Web</title>
-    <link href="dist/output.css" rel="stylesheet">
+    <title>Thrills | W2C</title>
+    <link href="../dist/output.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -14,10 +14,20 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <style>
-        /* Custom map markers or popup styles if needed */
         .leaflet-popup-content-wrapper {
             border-radius: 8px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .leaflet-popup-tip {
+            background: #1a1a1a;
+        }
+
+        /* Restore Dark Map Filter */
+        body .leaflet-tile-pane {
+            filter: invert(70%) hue-rotate(180deg) brightness(120%) contrast(200%);
         }
     </style>
 </head>
@@ -30,35 +40,48 @@
     <main class="w-full flex-1">
 
         <!-- SECTION 1: Coasters & Parks Map -->
-        <section class="max-w-[1200px] mx-auto px-6 mt-10 mb-16">
-            <div class="text-center mb-8">
-                <h1 class="text-3xl font-medium text-gray-900">Coasters & Parks Locations</h1>
-                <p class="text-gray-500 mt-2">Explora nuestras ubicaciones y proyectos reales.</p>
+        <section class="max-w-[1200px] mx-auto px-6 mt-12 mb-16">
+            <!-- Typography Style: Small H1 left, Big text below -->
+            <div class="mb-12 text-center md:text-left">
+                <h1 class="text-4xl font-medium mb-4">Thrills <span class="text-corporate-blue">&amp; Rides</span></h1>
             </div>
 
-            <div id="map" class="w-full h-[500px] rounded-2xl z-0 shadow-lg border border-gray-200"></div>
+            <div class="text-center md:text-left mb-8">
+                <h2 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                    Real locations,<br><span class="text-gray-500">unreal experiences.</span>
+                </h2>
+            </div>
+
+            <!-- Map: Mobile height reduced to ~375px (3/4 of 500), Desktop fixed 500px -->
+            <div id="map"
+                class="w-full h-[375px] md:h-[500px] rounded-2xl z-0 shadow-lg border border-gray-200 overflow-hidden mb-8">
+            </div>
+
+            <div class="text-center md:text-left">
+                <a href="http://coaster.where2create.com" target="_blank"
+                    class="inline-block px-8 py-3 bg-corporate-blue text-white rounded font-medium hover:bg-blue-600 transition-colors">Discover
+                    More</a>
+            </div>
 
             <script>
                 function initMap() {
-                    // Check if map container exists
                     if (!document.getElementById('map')) return;
 
-                    // Initialize Leaflet Map
-                    // Centered loosely on Europe/Spain
                     var map = L.map('map').setView([40.4168, -3.7038], 5);
 
-                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    // Restore CARTO Dark Tiles
+                    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
                         maxZoom: 19,
-                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                        attribution: '&copy; OpenStreetMap &copy; CARTO'
                     }).addTo(map);
 
-                    // Marker 1: Generic Location
+                    // Marker 1
                     var coaster1 = L.marker([41.08, 1.15]).addTo(map);
-                    coaster1.bindPopup("<b>Red Force Clone</b><br><a href='http://coaster.where2create.com' target='_blank' class='text-corporate-blue font-bold hover:underline'>View Project</a>").openPopup();
+                    coaster1.bindPopup("<b>Red Force Clone</b><br><a href='#' class='text-corporate-blue font-bold hover:underline'>View Project</a>");
 
-                    // Marker 2: Another Location
+                    // Marker 2
                     var coaster2 = L.marker([52.98, -2.44]).addTo(map);
-                    coaster2.bindPopup("<b>The Smiler Legacy</b><br><a href='http://coaster.where2create.com' target='_blank' class='text-corporate-blue font-bold hover:underline'>View Project</a>");
+                    coaster2.bindPopup("<b>The Smiler Legacy</b><br><a href='#' class='text-corporate-blue font-bold hover:underline'>View Project</a>");
                 }
             </script>
         </section>
@@ -66,15 +89,16 @@
         <!-- SECTION 2: Ride Concepts -->
         <section class="bg-white py-16 border-t border-gray-200">
             <div class="max-w-[1200px] mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-medium text-gray-900">Ride Concepts</h2>
-                    <p class="text-gray-500 mt-2">Diseños conceptuales que desafían los límites.</p>
+                <div class="mb-12 text-center md:text-left">
+                    <h2 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                        Conceptual designs<br><span class="text-gray-500">that push boundaries.</span>
+                    </h2>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Concept 1: The Kraken -->
                     <div class="group relative overflow-hidden rounded-2xl bg-black h-[400px] shadow-lg">
-                        <img src="img/kraken.webp" alt="The Kraken"
+                        <img src="../img/kraken.webp" alt="The Kraken"
                             class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90">
@@ -84,17 +108,16 @@
                             <span class="text-corporate-blue font-bold tracking-wider text-xs uppercase mb-2 block">Deep
                                 Sea Coaster</span>
                             <h3 class="text-white text-3xl font-bold mb-3">The Kraken</h3>
-                            <p class="text-gray-300 mb-6">Una inmersión profunda en lo desconocido. Velocidad y
-                                oscuridad.</p>
-                            <a href="kraken.html"
-                                class="text-white border-b border-corporate-blue pb-1 hover:text-corporate-blue transition-colors">Ver
-                                Detalles</a>
+                            <p class="text-gray-300 mb-6">A deep dive into the unknown. Speed and darkness.</p>
+                            <a href="kraken/"
+                                class="text-white border-b border-corporate-blue pb-1 hover:text-corporate-blue transition-colors">View
+                                Details</a>
                         </div>
                     </div>
 
                     <!-- Concept 2: The Mermaid -->
                     <div class="group relative overflow-hidden rounded-2xl bg-black h-[400px] shadow-lg">
-                        <img src="img/mermaid.webp" alt="The Mermaid"
+                        <img src="../img/mermaid.webp" alt="The Mermaid"
                             class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90">
@@ -105,10 +128,10 @@
                                 class="text-corporate-orange font-bold tracking-wider text-xs uppercase mb-2 block">Fantasy
                                 Ride</span>
                             <h3 class="text-white text-3xl font-bold mb-3">The Mermaid</h3>
-                            <p class="text-gray-300 mb-6">Elegancia y mitología en un recorrido suave y encantador.</p>
-                            <a href="mermaid.html"
-                                class="text-white border-b border-corporate-orange pb-1 hover:text-corporate-orange transition-colors">Ver
-                                Detalles</a>
+                            <p class="text-gray-300 mb-6">Elegance and mythology in a smooth, enchanting ride.</p>
+                            <a href="mermaid/"
+                                class="text-white border-b border-corporate-orange pb-1 hover:text-corporate-orange transition-colors">View
+                                Details</a>
                         </div>
                     </div>
                 </div>
@@ -119,8 +142,7 @@
 
     <div id="footer-placeholder"></div>
 
-    <script type="module" src="js/main.js"></script>
-    <!-- Removed old tabs script as it is no longer used -->
+    <script type="module" src="../js/main.js"></script>
 </body>
 
 </html>

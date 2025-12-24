@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apps | Project Web</title>
-    <link href="dist/output.css" rel="stylesheet">
+    <link href="../dist/output.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
@@ -14,14 +14,19 @@
     <div id="header-placeholder"></div>
 
     <main class="max-w-[1200px] mx-auto px-6 w-full py-12">
-        <section class="text-center mb-16">
+        <section class="mb-16 text-center md:text-left">
             <h1 class="text-4xl font-medium mb-4">Apps & <span class="text-corporate-blue">Tools</span></h1>
-            <p class="text-gray-500 text-lg">Productivity software designed for the modern web.</p>
         </section>
+
+        <div class="flex flex-col items-center text-center gap-12 mb-16">
+            <h2 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                Productivity,<br><span class="text-corporate-orange">for the modern web.</span>
+            </h2>
+        </div>
 
         <!-- Coming Soon Section -->
         <section>
-            <h2 class="text-2xl font-medium text-center text-gray-400 uppercase tracking-widest mb-12">Coming Soon</h2>
+            <h3 class="text-2xl font-medium text-center text-gray-400 uppercase tracking-widest mb-12">Coming Soon</h3>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <!-- App 1: Fill and Sign -->
@@ -48,7 +53,7 @@
     </main>
 
     <div id="footer-placeholder"></div>
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="../js/main.js"></script>
 </body>
 
 </html>
