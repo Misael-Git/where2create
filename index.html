@@ -16,96 +16,95 @@
     <main class="w-full">
         <!-- Carousel Section -->
         <section class="max-w-[1200px] mx-auto px-6 mt-6">
-            <div id="home-carousel" class="relative overflow-hidden w-full h-[350px] rounded-xl bg-gray-100">
-                <!-- Slides -->
+            <div id="home-carousel"
+                class="relative overflow-hidden w-full h-[450px] rounded-xl bg-black border border-gray-800">
+
+                <!-- Slide 1: Thrills (Image LEFT, Black BG) -->
                 <div
-                    class="carousel-slide absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-corporate-blue text-white opacity-0 transition-opacity duration-500 active:opacity-100 active:z-10">
-                    <h1 class="text-5xl font-medium mb-4">Experiencias Digitales</h1>
-                    <p class="text-white/80 text-xl mb-6">Diseño comercial, limpio y efectivo.</p>
-                    <a href="thrills.html"
-                        class="inline-block px-6 py-2 rounded bg-corporate-orange text-white font-medium hover:bg-red-600 transition-colors">Ver
-                        Proyectos</a>
+                    class="carousel-slide active absolute inset-0 flex w-full h-full opacity-100 z-10 transition-opacity duration-700">
+                    <div class="w-1/2 h-full relative">
+                        <!-- LCP Optimization: Eager load -->
+                        <img src="img/kraken.webp" alt="Thrills The Kraken" class="w-full h-full object-cover"
+                            fetchpriority="high" loading="eager">
+                        <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-black/80 md:hidden"></div>
+                    </div>
+                    <div class="w-1/2 h-full bg-black flex flex-col justify-center items-start px-12 text-left">
+                        <span
+                            class="text-corporate-blue font-bold text-sm tracking-wider mb-2 uppercase">Featured</span>
+                        <h2 class="text-white text-4xl font-medium mb-4">Thrills & Rides</h2>
+                        <p class="text-gray-400 text-lg mb-8">Gravity-defying concepts and innovative park designs.</p>
+                        <a href="thrills.html"
+                            class="px-8 py-3 bg-corporate-blue text-white rounded font-medium hover:bg-blue-600 transition-colors">Explore
+                            Thrills</a>
+                    </div>
                 </div>
 
+                <!-- Slide 2: Games (Image RIGHT, Orange BG) -->
                 <div
-                    class="carousel-slide absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-black text-white opacity-0 transition-opacity duration-500">
-                    <h1 class="text-5xl font-medium mb-4">Innovación Constante</h1>
-                    <p class="text-gray-400 text-xl mb-6">Tecnología web avanzada.</p>
-                    <a href="apps.html"
-                        class="inline-block px-6 py-2 rounded bg-corporate-blue text-white font-medium hover:bg-blue-700 transition-colors">Descargar
-                        Apps</a>
-                </div>
-
-                <div
-                    class="carousel-slide absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-corporate-orange text-white opacity-0 transition-opacity duration-500">
-                    <h1 class="text-5xl font-medium mb-4">Únete al Equipo</h1>
-                    <p class="text-white text-xl mb-6">Estamos buscando talento.</p>
-                    <a href="contact.html"
-                        class="inline-block px-6 py-2 rounded bg-white text-corporate-orange font-medium hover:bg-gray-100 transition-colors">Contactar</a>
-                </div>
-
-                <div class="carousel-nav absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20"></div>
-            </div>
-        </section>
-
-        <!-- Features Grid -->
-        <section class="max-w-[1200px] mx-auto px-6 py-16">
-            <h2 class="text-3xl font-medium text-center mb-12">¿Qué ofrecemos?</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div
-                    class="p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow flex flex-col items-start bg-white">
+                    class="carousel-slide absolute inset-0 flex flex-row-reverse w-full h-full opacity-0 transition-opacity duration-700">
+                    <div class="w-1/2 h-full relative">
+                        <img src="img/impostor.webp" alt="Games" class="w-full h-full object-cover" loading="lazy">
+                    </div>
                     <div
-                        class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-corporate-blue text-xl mb-4">
-                        ★</div>
-                    <h3 class="text-xl font-medium mb-3">Thrills & Rides</h3>
-                    <p class="text-gray-500 mb-6 flex-1">Diseños conceptuales que desafían la gravedad.</p>
-                    <a href="thrills.html" class="text-corporate-blue font-medium hover:underline">Ver más →</a>
+                        class="w-1/2 h-full bg-corporate-orange flex flex-col justify-center items-start px-12 text-left">
+                        <span class="text-white/80 font-bold text-sm tracking-wider mb-2 uppercase">Play</span>
+                        <h2 class="text-white text-4xl font-medium mb-4">Games</h2>
+                        <p class="text-white/90 text-lg mb-8">Play directly in your browser. No downloads required.</p>
+                        <a href="games.html"
+                            class="px-8 py-3 bg-white text-corporate-orange rounded font-medium hover:bg-gray-100 transition-colors">Play
+                            Games</a>
+                    </div>
                 </div>
 
-                <!-- Card 2 -->
+                <!-- Slide 3: Apps (Image LEFT, Blue BG) - Updated Image to impostor.webp -->
                 <div
-                    class="p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow flex flex-col items-start bg-white">
+                    class="carousel-slide absolute inset-0 flex w-full h-full opacity-0 transition-opacity duration-700">
+                    <div class="w-1/2 h-full relative">
+                        <img src="img/apps.webp" alt="Apps" class="w-full h-full object-cover" loading="lazy">
+                    </div>
                     <div
-                        class="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center text-corporate-orange text-xl mb-4">
-                        ♫</div>
-                    <h3 class="text-xl font-medium mb-3">Music Hub</h3>
-                    <p class="text-gray-500 mb-6 flex-1">Experiencias auditivas inmersivas.</p>
-                    <a href="music.html" class="text-corporate-orange font-medium hover:underline">Escuchar →</a>
+                        class="w-1/2 h-full bg-corporate-blue flex flex-col justify-center items-start px-12 text-left">
+                        <span class="text-white/80 font-bold text-sm tracking-wider mb-2 uppercase">Tools</span>
+                        <h2 class="text-white text-4xl font-medium mb-4">Apps Suite</h2>
+                        <p class="text-blue-100 text-lg mb-8">Productivity software designed for the modern web.</p>
+                        <a href="apps.html"
+                            class="px-8 py-3 bg-white text-corporate-blue rounded font-medium hover:bg-gray-100 transition-colors">Get
+                            Apps</a>
+                    </div>
                 </div>
 
-                <!-- Card 3 -->
+                <!-- Slide 4: About (Image RIGHT, Black BG, Orange Button) -->
                 <div
-                    class="p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow flex flex-col items-start bg-white">
-                    <div
-                        class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-corporate-blue text-xl mb-4">
-                        🎮</div>
-                    <h3 class="text-xl font-medium mb-3">Gaming Zone</h3>
-                    <p class="text-gray-500 mb-6 flex-1">Juegos sin descargas, directo en tu navegador.</p>
-                    <a href="games.html" class="text-corporate-blue font-medium hover:underline">Jugar →</a>
+                    class="carousel-slide absolute inset-0 flex flex-row-reverse w-full h-full opacity-0 transition-opacity duration-700">
+                    <div class="w-1/2 h-full relative">
+                        <img src="img/bebe.webp" alt="About" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="w-1/2 h-full bg-black flex flex-col justify-center items-start px-12 text-left">
+                        <span class="text-gray-500 font-bold text-sm tracking-wider mb-2 uppercase">Mission</span>
+                        <h2 class="text-white text-4xl font-medium mb-4">About Me</h2>
+                        <p class="text-gray-400 text-lg mb-8">Discover the story and mission behind the project.</p>
+                        <a href="about.html"
+                            class="px-8 py-3 bg-corporate-orange text-white rounded font-medium hover:bg-red-600 transition-colors">Read
+                            More</a>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Special Blue Section -->
-        <section class="bg-corporate-blue py-20 text-white">
-            <div class="max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
-                <div class="flex-1">
-                    <h2 class="text-3xl font-medium mb-4 text-white">Tecnología para el Futuro</h2>
-                    <p class="text-blue-100 text-lg mb-6 leading-relaxed">
-                        Creamos soluciones que escalan con tu negocio.
-                        Desde aplicaciones móviles hasta plataformas web complejas.
-                    </p>
-                    <a href="apps.html"
-                        class="inline-block px-6 py-3 rounded bg-corporate-orange text-white font-medium hover:bg-red-600 transition-colors">Ver
-                        Soluciones</a>
-                </div>
-                <!-- Abstract Graphic Placeholder -->
-                <div
-                    class="w-full md:w-80 h-48 bg-white/10 rounded-2xl border border-white/20 flex items-center justify-center text-white/50">
-                    Graphic UI
-                </div>
+                <!-- Navigation Controls -->
+                <button id="prev-btn"
+                    class="absolute top-1/2 left-4 -translate-y-1/2 bg-black/50 hover:bg-black/90 text-white p-3 rounded-full z-30 transition-all focus:outline-none cursor-pointer">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                        </path>
+                    </svg>
+                </button>
+                <button id="next-btn"
+                    class="absolute top-1/2 right-4 -translate-y-1/2 bg-black/50 hover:bg-black/90 text-white p-3 rounded-full z-30 transition-all focus:outline-none cursor-pointer">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <div class="carousel-nav absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-30"></div>
             </div>
         </section>
 

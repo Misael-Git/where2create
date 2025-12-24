@@ -7,120 +7,109 @@
     <title>Thrills | Project Web</title>
     <link href="dist/output.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <style>
-        .tab-content {
-            display: none;
-            margin-top: 1rem;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Custom map markers or popup styles if needed */
+        .leaflet-popup-content-wrapper {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 
-<body data-page="thrills" class="font-sans antialiased text-corporate-dark bg-white flex flex-col min-h-screen">
+<body data-page="thrills" class="font-sans antialiased text-corporate-dark bg-white flex flex-col min-h-screen"
+    onload="initMap()">
 
     <div id="header-placeholder"></div>
 
-    <!-- Sub Navbar -->
-    <div class="h-10 bg-corporate-blue shadow-sm">
-        <div class="max-w-[1200px] mx-auto flex justify-center h-full">
-            <button
-                class="sub-nav-item h-full px-6 flex items-center text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-colors active"
-                onclick="switchTab('rides')">Rides Concepts</button>
-            <button
-                class="sub-nav-item h-full px-6 flex items-center text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-colors"
-                onclick="switchTab('coasters')">Coasters and Parks</button>
-        </div>
-    </div>
+    <main class="w-full flex-1">
 
-    <main class="max-w-[1200px] mx-auto px-6 py-12 w-full">
-
-        <!-- Tab 1 -->
-        <section id="tab-rides" class="tab-content active">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-medium text-corporate-blue mb-2">Rides Concepts</h2>
-                <p class="text-gray-500">Futurismo y adrenalina.</p>
+        <!-- SECTION 1: Coasters & Parks Map -->
+        <section class="max-w-[1200px] mx-auto px-6 mt-10 mb-16">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-medium text-gray-900">Coasters & Parks Locations</h1>
+                <p class="text-gray-500 mt-2">Explora nuestras ubicaciones y proyectos reales.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div
-                    class="rounded-lg overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="h-48 bg-gray-100 flex items-center justify-center text-gray-400 font-medium">Concept 1
-                        Image</div>
-                    <div class="p-6 bg-white">
-                        <h3 class="text-lg font-bold mb-2 text-gray-800">Concept Alpha</h3>
-                        <p class="text-gray-500 text-sm">Diseño experimental de gravedad cero.</p>
-                    </div>
-                </div>
+            <div id="map" class="w-full h-[500px] rounded-2xl z-0 shadow-lg border border-gray-200"></div>
 
-                <!-- Card 2 -->
-                <div
-                    class="rounded-lg overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="h-48 bg-gray-100 flex items-center justify-center text-gray-400 font-medium">Concept 2
-                        Image</div>
-                    <div class="p-6 bg-white">
-                        <h3 class="text-lg font-bold mb-2 text-gray-800">Hyper Loop</h3>
-                        <p class="text-gray-500 text-sm">Velocidad supersónica en un entorno controlado.</p>
-                    </div>
-                </div>
+            <script>
+                function initMap() {
+                    // Check if map container exists
+                    if (!document.getElementById('map')) return;
 
-                <!-- Card 3 -->
-                <div
-                    class="rounded-lg overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="h-48 bg-gray-100 flex items-center justify-center text-gray-400 font-medium">Concept 3
-                        Image</div>
-                    <div class="p-6 bg-white">
-                        <h3 class="text-lg font-bold mb-2 text-gray-800">Sky Dive</h3>
-                        <p class="text-gray-500 text-sm">Simulación de caída libre avanzada.</p>
-                    </div>
-                </div>
-            </div>
+                    // Initialize Leaflet Map
+                    // Centered loosely on Europe/Spain
+                    var map = L.map('map').setView([40.4168, -3.7038], 5);
+
+                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    }).addTo(map);
+
+                    // Marker 1: Generic Location
+                    var coaster1 = L.marker([41.08, 1.15]).addTo(map);
+                    coaster1.bindPopup("<b>Red Force Clone</b><br><a href='http://coaster.where2create.com' target='_blank' class='text-corporate-blue font-bold hover:underline'>View Project</a>").openPopup();
+
+                    // Marker 2: Another Location
+                    var coaster2 = L.marker([52.98, -2.44]).addTo(map);
+                    coaster2.bindPopup("<b>The Smiler Legacy</b><br><a href='http://coaster.where2create.com' target='_blank' class='text-corporate-blue font-bold hover:underline'>View Project</a>");
+                }
+            </script>
         </section>
 
-        <!-- Tab 2 -->
-        <section id="tab-coasters" class="tab-content">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-medium text-corporate-orange mb-2">Coasters and Parks</h2>
-                <p class="text-gray-500">Implementaciones reales.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div
-                    class="bg-corporate-orange/5 p-8 rounded-2xl flex items-start gap-6 border border-corporate-orange/10">
-                    <div
-                        class="w-12 h-12 rounded-lg bg-corporate-orange text-white flex items-center justify-center text-xl shrink-0">
-                        🏔️</div>
-                    <div>
-                        <h3 class="text-xl font-medium mb-2 text-corporate-orange">Mountain Expedition</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Una montaña rusa trepidante que atraviesa los
-                            picos más altos, diseñada para la máxima inmersión.</p>
-                    </div>
+        <!-- SECTION 2: Ride Concepts -->
+        <section class="bg-white py-16 border-t border-gray-200">
+            <div class="max-w-[1200px] mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-medium text-gray-900">Ride Concepts</h2>
+                    <p class="text-gray-500 mt-2">Diseños conceptuales que desafían los límites.</p>
                 </div>
 
-                <div class="bg-blue-50 p-8 rounded-2xl flex items-start gap-6 border border-blue-100">
-                    <div
-                        class="w-12 h-12 rounded-lg bg-corporate-blue text-white flex items-center justify-center text-xl shrink-0">
-                        🌊</div>
-                    <div>
-                        <h3 class="text-xl font-medium mb-2 text-corporate-blue">Aqua Splash</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Atracción híbrida de agua y velocidad, perfecta
-                            para resorts y parques acuáticos.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Concept 1: The Kraken -->
+                    <div class="group relative overflow-hidden rounded-2xl bg-black h-[400px] shadow-lg">
+                        <img src="img/kraken.webp" alt="The Kraken"
+                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90">
+                        </div>
+                        <div
+                            class="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="text-corporate-blue font-bold tracking-wider text-xs uppercase mb-2 block">Deep
+                                Sea Coaster</span>
+                            <h3 class="text-white text-3xl font-bold mb-3">The Kraken</h3>
+                            <p class="text-gray-300 mb-6">Una inmersión profunda en lo desconocido. Velocidad y
+                                oscuridad.</p>
+                            <a href="kraken.html"
+                                class="text-white border-b border-corporate-blue pb-1 hover:text-corporate-blue transition-colors">Ver
+                                Detalles</a>
+                        </div>
+                    </div>
+
+                    <!-- Concept 2: The Mermaid -->
+                    <div class="group relative overflow-hidden rounded-2xl bg-black h-[400px] shadow-lg">
+                        <img src="img/mermaid.webp" alt="The Mermaid"
+                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90">
+                        </div>
+                        <div
+                            class="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                            <span
+                                class="text-corporate-orange font-bold tracking-wider text-xs uppercase mb-2 block">Fantasy
+                                Ride</span>
+                            <h3 class="text-white text-3xl font-bold mb-3">The Mermaid</h3>
+                            <p class="text-gray-300 mb-6">Elegancia y mitología en un recorrido suave y encantador.</p>
+                            <a href="mermaid.html"
+                                class="text-white border-b border-corporate-orange pb-1 hover:text-corporate-orange transition-colors">Ver
+                                Detalles</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -131,30 +120,7 @@
     <div id="footer-placeholder"></div>
 
     <script type="module" src="js/main.js"></script>
-    <script>
-        function switchTab(tabName) {
-            const navItems = document.querySelectorAll('.sub-nav-item');
-            navItems.forEach(item => {
-                const text = item.innerText.toLowerCase();
-                const target = tabName === 'rides' ? 'rides' : 'coasters';
-
-                // Tailwind Active vs Inactive classes for Navbar
-                if (text.includes(target)) {
-                    item.classList.add('bg-white/20', 'text-white');
-                    item.classList.remove('text-white/70', 'hover:bg-white/10');
-                } else {
-                    item.classList.remove('bg-white/20', 'text-white');
-                    item.classList.add('text-white/70', 'hover:bg-white/10');
-                }
-            });
-
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            document.getElementById('tab-' + tabName).classList.add('active');
-        }
-        window.switchTab = switchTab;
-    </script>
+    <!-- Removed old tabs script as it is no longer used -->
 </body>
 
 </html>
