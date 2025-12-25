@@ -1,10 +1,19 @@
 @import "tailwindcss";
 
 @theme {
+    /* Original colors - keep for elements that should maintain original colors */
     --color-corporate-blue: #1A73E8;
     --color-corporate-orange: #EA4335;
     --color-corporate-black: #000000;
     --color-corporate-dark: #202124;
+
+    /* Dark mode colors */
+    --color-bg-dark: #1a1a1a;
+    --color-text-light: #e5e5e5;
+    --color-corporate-blue-light: #5c9ef5;
+    --color-corporate-orange-light: #ff6b5e;
+    --color-gray-light: #b0b0b0;
+    --color-gray-dark-text: #2d2d2d;
 
     --font-sans: "Inter", sans-serif;
 }

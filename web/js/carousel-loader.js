@@ -55,13 +55,13 @@ export function loadCarousel(placeholderId, currentPageId) {
 
     // Create the "Discover More" title - Hidden on homepage
     const titleSection = isHome ? '' : `
-        <div class="max-w-[1240px] mx-auto px-6 mb-8 mt-20">
-            <h2 class="text-4xl font-medium">Discover <span class="text-corporate-blue">More</span></h2>
+        <div class="max-w-[1200px] mx-auto px-6 mb-8 mt-20">
+            <h2 class="text-4xl font-medium">Discover <span class="text-corporate-blue-light">More</span></h2>
         </div>
     `;
 
     const carouselHTML = `
-        <section class="w-full md:max-w-[1240px] md:mx-auto md:px-6 ${isHome ? 'mt-0 md:mt-8' : 'mt-0'} mb-0 md:mb-16">
+        <section class="w-full md:max-w-[1200px] md:mx-auto md:px-6 ${isHome ? 'mt-0 md:mt-8' : 'mt-0'} mb-0 md:mb-16">
             <div id="dynamic-carousel" class="relative overflow-hidden w-full h-[85vh] md:h-[480px] md:rounded-xl bg-black group">
                 ${filteredSlides.map((slide, index) => `
                     <div class="carousel-slide ${index === 0 ? 'active opacity-100 z-10' : 'opacity-0 z-0'} absolute inset-0 flex flex-col ${slide.order} w-full h-full transition-opacity duration-700">

@@ -26,14 +26,31 @@
             background: #1a1a1a;
         }
 
-        /* Restore Dark Map Filter */
         body .leaflet-tile-pane {
-            filter: invert(70%) hue-rotate(180deg) brightness(120%) contrast(200%);
+            /* filter: invert(70%) hue-rotate(180deg) brightness(120%) contrast(200%); */
+            /* filter: brightness(100%) contrast(110%); */
+            filter: brightness(158%) contrast(150%);
+        }
+
+        /* Oscurecer controles de Leaflet */
+        .leaflet-control-zoom a,
+        .leaflet-control-attribution {
+            background-color: #2a2a2a !important;
+            color: #b0b0b0 !important;
+            border-color: #3a3a3a !important;
+        }
+
+        .leaflet-control-zoom a:hover {
+            background-color: #3a3a3a !important;
+        }
+
+        .leaflet-control-attribution a {
+            color: #5c9ef5 !important;
         }
     </style>
 </head>
 
-<body data-page="thrills" class="font-sans antialiased text-corporate-dark bg-white flex flex-col min-h-screen"
+<body data-page="thrills" class="font-sans antialiased text-text-light bg-bg-dark flex flex-col min-h-screen"
     onload="initMap()">
 
     <div id="header-placeholder"></div>
@@ -41,18 +58,19 @@
     <main class="w-full flex-1">
 
         <!-- SECTION 1: Ride Concepts -->
-        <section class="bg-white py-16">
+        <section class="bg-bg-dark py-16">
 
 
             <div class="max-w-[1200px] mx-auto px-6">
                 <!-- Typography Style: Small H1 left, Big text below -->
                 <div class="mb-12 text-center md:text-left">
-                    <h1 class="text-4xl font-medium mb-4">Thrills <span class="text-corporate-blue">&amp; Rides</span>
+                    <h1 class="text-4xl font-medium mb-4">Thrills <span class="text-corporate-blue-light">&amp;
+                            Rides</span>
                     </h1>
                 </div>
                 <div class="mb-12 text-center md:text-left">
-                    <h2 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
-                        Conceptual designs<br><span class="text-gray-500">that push boundaries.</span>
+                    <h2 class="text-5xl md:text-6xl font-bold text-text-light leading-tight">
+                        Conceptual designs<br><span class="text-gray-light">that push boundaries.</span>
                     </h2>
                 </div>
 
@@ -66,11 +84,12 @@
                         </div>
                         <div
                             class="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                            <span class="text-corporate-blue font-bold tracking-wider text-xs uppercase mb-2 block">DEEP
+                            <span
+                                class="text-corporate-blue-light font-bold tracking-wider text-xs uppercase mb-2 block">DEEP
                                 SEA</span>
                             <h3 class="text-white text-3xl font-bold mb-3">The Kraken</h3>
                             <a href="kraken/"
-                                class="text-white border-b border-corporate-blue pb-1 hover:text-corporate-blue transition-colors">View
+                                class="text-white border-b border-corporate-blue-light pb-1 hover:text-corporate-blue-light transition-colors">View
                                 Details</a>
                         </div>
                     </div>
@@ -85,11 +104,11 @@
                         <div
                             class="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                             <span
-                                class="text-corporate-orange font-bold tracking-wider text-xs uppercase mb-2 block">DEEP
+                                class="text-corporate-orange-light font-bold tracking-wider text-xs uppercase mb-2 block">DEEP
                                 SEA</span>
                             <h3 class="text-white text-3xl font-bold mb-3">The Mermaid</h3>
                             <a href="mermaid/"
-                                class="text-white border-b border-corporate-orange pb-1 hover:text-corporate-orange transition-colors">View
+                                class="text-white border-b border-corporate-orange-light pb-1 hover:text-corporate-orange-light transition-colors">View
                                 Details</a>
                         </div>
                     </div>
@@ -101,8 +120,8 @@
 
             <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-6">
                 <div class="text-center md:text-left">
-                    <h2 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
-                        Real locations,<br><span class="text-gray-500">unreal experiences.</span>
+                    <h2 class="text-5xl md:text-6xl font-bold text-text-light leading-tight">
+                        Real locations,<br><span class="text-gray-light">unreal experiences.</span>
                     </h2>
                 </div>
                 <div class="text-center md:text-right">
@@ -114,8 +133,7 @@
             </div>
 
             <!-- Map: Mobile height reduced to ~375px (3/4 of 500), Desktop fixed 500px -->
-            <div id="map"
-                class="w-full h-[375px] md:h-[500px] rounded-2xl z-0 shadow-lg border border-gray-200 overflow-hidden mb-8">
+            <div id="map" class="w-full h-[375px] md:h-[500px] rounded-lg z-0 shadow-xl overflow-hidden mb-8">
             </div>
 
             <script>
@@ -124,9 +142,12 @@
 
                     var map = L.map('map').setView([40.4168, -3.7038], 5);
 
+                    map.scrollWheelZoom.disable();
+
                     // Restore CARTO Dark Tiles
-                    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                        maxZoom: 19,
+                    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                        maxZoom: 5,
+                        minZoom: 5,
                         attribution: '&copy; OpenStreetMap &copy; CARTO'
                     }).addTo(map);
 
