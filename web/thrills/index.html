@@ -47,9 +47,23 @@
         .leaflet-control-attribution a {
             color: #5c9ef5 !important;
         }
+
+        /* Reduce el tamaño, cambia el color para que contraste poco y quita el fondo */
+        .leaflet-control-attribution {
+            font-size: 9px !important;
+            color: rgba(255, 255, 255, 0.3) !important;
+            /* Gris muy suave */
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+
+        .leaflet-control-attribution a {
+            color: rgba(255, 255, 255, 0.3) !important;
+            text-decoration: none;
+        }
     </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1383054634086783"
-        crossorigin="anonymous"></script>
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1383054634086783"
+        crossorigin="anonymous"></script> -->
 </head>
 
 <body data-page="thrills" class="font-sans antialiased text-text-light bg-bg-dark flex flex-col min-h-screen"
@@ -119,13 +133,13 @@
         </section>
 
         <!-- Interstitial Ad Unit -->
-        <div class="max-w-[1200px] mx-auto py-8 text-center">
+        <!-- <div class="max-w-[1200px] mx-auto py-8 text-center">
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1383054634086783"
                 data-ad-slot="6280054968" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
 
         <section class="max-w-[1200px] mx-auto px-6 mt-12 mb-16">
 
@@ -151,7 +165,14 @@
                 function initMap() {
                     if (!document.getElementById('map')) return;
 
-                    var map = L.map('map').setView([40.4168, -3.7038], 5);
+                    var map = L.map('map', {
+                        zoomControl: false,
+                        attributionControl: false
+                    }).setView([40.4168, -3.7038], 5);
+
+                    L.control.attribution({
+                        collapsed: true // Esto crea el icono de información (i)
+                    }).addTo(map);
 
                     map.scrollWheelZoom.disable();
 
@@ -159,7 +180,7 @@
                     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
                         maxZoom: 5,
                         minZoom: 5,
-                        attribution: '&copy; OpenStreetMap &copy; CARTO'
+                        attribution: '&copy; OSM & CARTO'
                     }).addTo(map);
 
                     // Marker 1
@@ -177,13 +198,13 @@
     </main>
 
     <!-- Multiplex Ad Unit -->
-    <div class="max-w-[1200px] mx-auto px-6 py-8">
+    <!-- <div class="max-w-[1200px] mx-auto px-6 py-8">
         <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
             data-ad-client="ca-pub-1383054634086783" data-ad-slot="8274844678"></ins>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
-    </div>
+    </div> -->
 
     <div id="footer-placeholder"></div>
 
