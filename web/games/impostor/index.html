@@ -6,50 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impostor | W2C</title>
     <link href="../../dist/output.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/img/LOGO.png">
-    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1383054634086783"
-        crossorigin="anonymous"></script> -->
+    <link href="../../css/modern.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../img/LOGO.png">
 </head>
 
-<body data-page="games" class="font-sans antialiased text-text-light bg-gray-900 flex flex-col min-h-screen">
+<body data-page="games-detail">
+
+    <div class="bg-glow"></div>
     <div id="header-placeholder"></div>
+
     <main class="w-full">
-        <!-- Standardized Typography Header -->
-        <section class="max-w-[1200px] mx-auto px-6 py-12">
-            <div class="mb-16 text-center md:text-left">
-                <h1 class="text-4xl font-medium mb-4">Impostor
-                </h1>
+        <section class="relative h-[60vh] flex items-center justify-center overflow-hidden">
+            <img src="../../img/impostor.webp" class="absolute inset-0 w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
+
+            <div class="container-wide relative z-10 text-center animate-fade-in">
+                <span class="text-sky-500 font-bold tracking-[0.4em] uppercase text-[10px] mb-6 block">Interactive
+                    Experience</span>
+                <h1 class="text-7xl md:text-9xl font-bold text-white tracking-tighter leading-none mb-8">IMPOSTOR</h1>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto font-light">Trust no one. Uncover the
+                    truth.</p>
             </div>
-            
-            <div class="flex flex-col items-center text-center gap-12 mb-16">
-                <!-- Big Text -->
-                <h2 class="text-5xl md:text-6xl font-bold text-text-light leading-tight">
-                    Immersive fun,<br><span class="text-gray-light">directly in your browser.</span>
-                </h2>
-                <p class="text-gray-light mt-6 text-lg max-w-2xl">( No downloads, just play. Experience the next
-                    generation of web gaming. )</p>
-            </div>
-<div class="flex items-center justify-center h-screen">
-                        <a href="https://impostor.where2create.com"
-                            class="px-10 py-4 bg-corporate-orange text-white rounded-xl font-bold text-lg hover:bg-red-600 transition-all hover:scale-105 shadow-xl">
-                            Play now
-                        </a>
-                
-</div>
         </section>
+
+        <section class="container-wide py-32">
+            <div class="glass p-12 md:p-24 rounded-[4rem] text-center animate-fade-in">
+                <h2 class="text-4xl font-bold text-white mb-8 italic">Coming Soon to W2C Games</h2>
+                <p class="text-2xl text-gray-500 font-light leading-relaxed mb-12">
+                    We are currently refactoring the core mechanics of Impostor to provide a seamless multiplayer
+                    experience directly in your browser.
+                </p>
+                <div class="flex justify-center">
+                    <a href="../index.html" class="btn-glass">Back to Games</a>
+                </div>
+            </div>
+        </section>
+
+        <div id="carousel-placeholder"></div>
     </main>
-    <!-- Multiplex Ad Unit -->
-    <!-- <div class="max-w-[1200px] mx-auto px-6 py-8">
-        <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
-            data-ad-client="ca-pub-1383054634086783" data-ad-slot="8274844678"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div> -->
 
     <div id="footer-placeholder"></div>
-    <script type="module" src="../../js/main.js"></script>
+
+    <script src="../../js/header.js"></script>
+    <script src="../../js/footer.js"></script>
+    <script src="../../js/carousel-loader.js"></script>
+    <script src="../../js/accordion.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 
 </html>

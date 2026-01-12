@@ -4,43 +4,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Mermaid | Where 2 Create</title>
+    <title>The Mermaid | W2C</title>
     <link href="../../dist/output.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/img/LOGO.png">
-    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1383054634086783"
-        crossorigin="anonymous"></script> -->
+    <link href="../../css/modern.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../img/LOGO.png">
 </head>
 
-<body data-page="thrills" class="font-sans antialiased text-text-light bg-bg-dark flex flex-col min-h-screen">
+<body data-page="thrills-detail" class="bg-black">
+
+    <div class="bg-glow"></div>
     <div id="header-placeholder"></div>
-    <main class="w-full flex-1">
-        <div class="h-[60vh] relative">
-            <img src="../../img/mermaid.webp" alt="The Mermaid" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-12">
-                <h1 class="text-6xl font-bold text-white mb-4">The Mermaid</h1>
-                <p class="text-xl text-corporate-orange-light">Mythical Fantasy Journey</p>
+
+    <main class="page-header-padding">
+        <!-- --- Hero --- -->
+        <section class="container-l mb-24">
+            <div class="relative h-[450px] md:h-[550px] rounded-[2rem] overflow-hidden animate-in">
+                <img src="../../img/mermaid.webp"
+                    class="absolute inset-0 w-full h-full object-cover grayscale opacity-50">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                <div class="absolute bottom-12 left-12">
+                    <span class="tag !text-white !mb-2">Engineering Study 02</span>
+                    <h1 class="uppercase tracking-tighter leading-none !text-6xl md:!text-9xl">Mermaid.</h1>
+                </div>
             </div>
-        </div>
-        <div class="max-w-[1200px] mx-auto px-6 py-16">
-            <p class="text-xl text-gray-light leading-relaxed max-w-3xl">
-                Glide through enchanted waters in this family-friendly dark ride.
-                Experience the song of the sirens in a mesmerizing underwater world.
-            </p>
-        </div>
+        </section>
+
+        <!-- --- Content --- -->
+        <section class="container-l mb-32">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+
+                <div class="animate-in" style="animation-delay: 0.1s">
+                    <h2 class="mb-10 italic font-light">The Sirens' Call.</h2>
+                    <p class="text-xl font-light text-slate-400 mb-8 leading-relaxed">Glide through enchanted waters in
+                        this family-friendly dark ride conceptualization.</p>
+                    <p class="text-[15px] text-slate-500 font-light leading-relaxed">Experience the song of the sirens
+                        in a mesmerizing underwater world that merges myth with cutting-edge projection technology. A
+                        study in mood, lighting, and environmental storytelling.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-in" style="animation-delay: 0.2s">
+                    <div class="stat-card p-8 bg-zinc-900/50 border border-white/5 rounded-3xl">
+                        <span class="stat-label !text-[10px] !mb-2">Ride Type</span>
+                        <span class="stat-value !text-3xl">Dark Ride</span>
+                    </div>
+                    <div class="stat-card p-8 bg-zinc-900/50 border border-white/5 rounded-3xl">
+                        <span class="stat-label !text-[10px] !mb-2">Duration</span>
+                        <span class="stat-value !text-3xl">4:30 MIN</span>
+                    </div>
+                    <div class="stat-card p-8 bg-orange-500/5 border border-orange-500/10 rounded-3xl">
+                        <span class="stat-label !text-orange-400 !text-[10px] !mb-2">Mood</span>
+                        <span class="stat-value !text-3xl">Enchanting</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <div id="carousel-placeholder" class="mb-20"></div>
     </main>
-    <!-- Multiplex Ad Unit -->
-    <!-- <div class="max-w-[1200px] mx-auto px-6 py-8">
-        <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
-            data-ad-client="ca-pub-1383054634086783" data-ad-slot="8274844678"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div> -->
 
     <div id="footer-placeholder"></div>
-    <script type="module" src="../../js/main.js"></script>
+
+    <script src="../../js/header.js"></script>
+    <script src="../../js/footer.js"></script>
+    <script src="../../js/carousel-loader.js"></script>
+    <script src="../../js/accordion.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 
 </html>

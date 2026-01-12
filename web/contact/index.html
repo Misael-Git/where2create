@@ -1,60 +1,72 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Project Web</title>
+    <title>Contact | W2C</title>
     <link href="../dist/output.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/img/LOGO.png">
-    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1383054634086783"
-        crossorigin="anonymous"></script> -->
+    <link href="../css/modern.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../img/LOGO.png">
 </head>
 
-<body data-page="contact" class="font-sans antialiased text-text-light bg-bg-dark flex flex-col min-h-screen">
+<body data-page="contact" class="bg-black">
 
+    <div class="bg-glow"></div>
     <div id="header-placeholder"></div>
 
-    <main class="max-w-[1200px] mx-auto px-6 w-full py-12 flex-grow flex flex-col">
-        <section class="mb-16 text-center md:text-left">
-            <h1 class="text-4xl font-medium mb-4">Get in <span class="text-corporate-orange-light">Touch</span></h1>
+    <main class="page-header-padding">
+        <section class="section-gap">
+            <div class="container-l animate-in">
+                <span class="tag">Interests & Inquiries</span>
+                <h1 class="max-w-4xl">Start the<br><span
+                        class="text-gradient italic font-light lowercase">conversation.</span></h1>
+
+                <div class="mt-20 border-t border-white/5 pt-12">
+                    <a href="mailto:contact@where2create.com"
+                        class="text-4xl md:text-6xl font-extrabold text-white hover:text-blue-500 transition-all tracking-tighter decoration-none">
+                        contact@where2create.com
+                    </a>
+                </div>
+            </div>
         </section>
 
-        <div class="flex-grow flex flex-col items-center text-center gap-12">
-            <h2 class="text-5xl md:text-6xl font-bold text-text-light leading-tight">
-                Start the conversation.<br><span class="text-gray-light">We are listening.</span>
-            </h2>
+        <section class="section-gap">
+            <div class="container-l">
+                <div class="max-w-2xl animate-in" style="animation-delay: 0.3s">
+                    <div class="glass-card p-12">
+                        <span class="tag !text-gray-700 !mb-8">Frequently Asked</span>
 
-            <!-- Mail Link -->
-            <a href="mailto:contact@where2create.com"
-                class="text-2xl md:text-3xl font-bold text-corporate-blue-light hover:text-blue-400 transition-colors mb-16 border-b-2 border-transparent hover:border-blue-400 pb-1">
-                contact@where2create.com
-            </a>
-        </div>
+                        <div class="faq-accordion py-6 border-b border-white/5 cursor-pointer group">
+                            <div class="flex justify-between items-center group-hover:text-blue-500 transition-colors">
+                                <h4 class="text-lg font-bold italic">Collaborations?</h4>
+                                <span class="text-xl">+</span>
+                            </div>
+                            <div class="hidden pt-4 text-gray-500 font-light text-sm">We are always open to new
+                                architectural and digital challenges. Let's discuss your vision.</div>
+                        </div>
 
-        <!-- FAQ Placeholder -->
-        <div class="max-w-xl mx-auto w-full">
-            <h2 class="text-xl font-medium text-gray-light mb-6 uppercase tracking-wider">FAQ</h2>
-            <div class="p-8 border border-gray-700 border-dashed rounded-xl bg-gray-900 text-gray-light italic">
-                "Start asking, and this will grow."
+                        <div class="faq-accordion py-6 border-b border-white/5 cursor-pointer group">
+                            <div class="flex justify-between items-center group-hover:text-blue-500 transition-colors">
+                                <h4 class="text-lg font-bold italic">Process?</h4>
+                                <span class="text-xl">+</span>
+                            </div>
+                            <div class="hidden pt-4 text-gray-500 font-light text-sm">Concept -> Engineering ->
+                                Experience. We follow a rigorous multidisciplinary approach to every project.</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div id="carousel-placeholder"></div>
+        </section>
     </main>
 
-    <!-- Multiplex Ad Unit -->
-    <!-- <div class="max-w-[1200px] mx-auto px-6 py-8">
-        <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
-            data-ad-client="ca-pub-1383054634086783" data-ad-slot="8274844678"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div> -->
-
     <div id="footer-placeholder"></div>
-    <script type="module" src="../js/main.js"></script>
+
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/carousel-loader.js"></script>
+    <script src="../js/accordion.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>

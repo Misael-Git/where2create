@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg-black: #050505;
+    --acc-blue: #3B82F6;
+    --acc-orange: #F97316;
+    --text-main: #FFFFFF;
+    --text-dim: #94A3B8;
+    --text-muted: #475569;
+    --header-h: 80px;
+    --section-gap: 160px;
+    /* Increased back for better premium feel */
+}
+
+/* --- Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-black);
+    color: var(--text-main);
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- Layout Utils --- */
+.container-l {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 60px;
+    /* Deep side padding */
+}
+
+.section-gap {
+    margin-bottom: var(--section-gap);
+}
+
+.py-20 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.py-32 {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+.mb-10 {
+    margin-bottom: 2.5rem;
+}
+
+.mb-16 {
+    margin-bottom: 4rem;
+}
+
+.mb-24 {
+    margin-bottom: 6rem;
+}
+
+.gap-10 {
+    gap: 2.5rem;
+}
+
+.gap-20 {
+    gap: 5rem;
+}
+
+/* Fixed Paddings */
+.p-12 {
+    padding: 3rem !important;
+}
+
+.p-10 {
+    padding: 2.5rem !important;
+}
+
+.px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+/* --- Typography (Refined for PC) --- */
+h1 {
+    font-size: clamp(52px, 8vw, 120px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 0.85;
+}
+
+h2 {
+    font-size: clamp(40px, 5vw, 75px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+h3 {
+    font-size: clamp(28px, 3vw, 48px);
+    font-weight: 700;
+}
+
+.tag {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    color: var(--acc-blue);
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.desc {
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--text-dim);
+    line-height: 1.7;
+    max-width: 800px;
+}
+
+/* --- Header --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-h);
+    z-index: 9999;
+}
+
+.page-header-padding {
+    padding-top: calc(var(--header-h) + 120px);
+}
+
+/* --- Navigation --- */
+.nav-link {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--text-dim);
+    transition: all 0.4s;
+    padding: 10px 20px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #FFF;
+}
+
+/* --- Cards --- */
+.attraction-card {
+    height: 450px;
+    /* Refined for PC aspect ratio */
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.attraction-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* --- Map Style --- */
+#map {
+    width: 100%;
+    height: 550px !important;
+    border-radius: 40px;
+    background: #000 !important;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+.leaflet-container {
+    background: #000 !important;
+}
+
+/* --- Footer Refinement --- */
+footer {
+    background: #020202;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    color: #FFF;
+}
+
+/* --- Buttons --- */
+.btn-primary {
+    display: inline-flex;
+    padding: 22px 50px;
+    background: #FFF;
+    color: #000 !important;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    border-radius: 100px;
+    /* Pillow button style */
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    background: var(--acc-blue);
+    color: white !important;
+}
+
+/* --- Decorative --- */
+.bg-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.05), transparent 50%);
+}

@@ -1,22 +1,23 @@
-import { loadHeader } from './header.js';
-import { loadFooter } from './footer.js';
-import { loadCarousel } from './carousel-loader.js';
-import { initAccordion } from './accordion.js';
-
 document.addEventListener('DOMContentLoaded', () => {
-    const bodyPage = document.body.getAttribute('data-page') || 'index';
+    const bodyPage = document.body.getAttribute('data-page');
+    const pageTitle = document.title;
 
-    // Load Core
-    loadHeader(bodyPage);
-    loadFooter();
+    // Header/Footer Initialization
+    if (window.loadHeader) window.loadHeader(bodyPage);
+    if (window.loadFooter) window.loadFooter();
 
-    // Load Carousel (Everywhere)
-    // For homepage 'index', we might not want to filter out anything, or maybe we do.
-    // The user said "without the section of the page it's on", so for home, let's show all.
-    loadCarousel('carousel-placeholder', bodyPage === 'index' ? '' : bodyPage);
+    // Discovery (Carousel) Initialization
+    const carouselPlaceholder = document.getElementById('carousel-placeholder');
+    if (carouselPlaceholder && window.loadCarousel) {
+        // Pass current page name to filter it out from discovery
+        let currentProject = "";
+        if (pageTitle.includes("Kraken")) currentProject = "Kraken";
+        if (pageTitle.includes("Mermaid")) currentProject = "Mermaid";
+        if (pageTitle.includes("Impostor")) currentProject = "Impostor";
 
-    // Init Page Specifics
-    if (bodyPage === 'contact') {
-        initAccordion('.faq-accordion');
+        window.loadCarousel('carousel-placeholder', currentProject);
     }
+
+    // Accordion Initialization
+    if (window.initAccordion) window.initAccordion();
 });

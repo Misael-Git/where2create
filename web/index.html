@@ -4,34 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | W2C</title>
-    <link href="dist/output.css" rel="stylesheet"> <!-- Now pointing to compiled CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/img/LOGO.png">
-    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1383054634086783"
-        crossorigin="anonymous"></script> -->
+    <title>W2C | We Build Dreams</title>
+    <link href="dist/output.css" rel="stylesheet">
+    <link href="css/modern.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/LOGO.png">
 </head>
 
-<body data-page="index" class="font-sans antialiased text-text-light bg-bg-dark flex flex-col min-h-screen">
+<body data-page="index" class="bg-black">
 
+    <div class="bg-glow"></div>
     <div id="header-placeholder"></div>
 
-    <main class="w-full">
-        <div id="carousel-placeholder"></div>
+    <main>
+        <!-- --- Hero Section --- -->
+        <section class="min-h-screen flex items-center pt-20">
+            <div class="container-l w-full animate-in">
+                <div class="max-w-4xl">
+                    <span class="tag">Creative Vision Studio</span>
 
+                    <h1 class="mb-10 uppercase tracking-tighter">
+                        We build<br>
+                        <span class="text-gradient italic font-light lowercase">dreams.</span>
+                    </h1>
+
+                    <p class="desc mb-16">
+                        A multidisciplinary studio at the intersection of architecture, digital media, and human
+                        emotion. Crafting experiences that linger.
+                    </p>
+
+                    <div class="flex flex-wrap gap-6">
+                        <a href="thrills/index.html" class="btn-primary">Explore Thrills</a>
+                        <a href="games/index.html"
+                            class="btn-primary !bg-zinc-900 !text-white border border-white/10">Play Games</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --- Carousel --- -->
+        <div id="carousel-placeholder" class="animate-in" style="animation-delay: 0.4s"></div>
     </main>
 
-    <!-- Multiplex Ad Unit -->
-    <!-- <div class="max-w-[1200px] mx-auto px-6 py-8">
-        <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
-            data-ad-client="ca-pub-1383054634086783" data-ad-slot="8274844678"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div> -->
-
     <div id="footer-placeholder"></div>
-    <script type="module" src="js/main.js"></script>
+
+    <!-- Scripts -->
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/carousel-loader.js"></script>
+    <script src="js/accordion.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

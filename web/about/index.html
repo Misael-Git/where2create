@@ -1,64 +1,66 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About me | Project Web</title>
+    <title>About | W2C</title>
     <link href="../dist/output.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/img/LOGO.png">
-    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1383054634086783"
-        crossorigin="anonymous"></script> -->
+    <link href="../css/modern.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../img/LOGO.png">
 </head>
 
-<body data-page="about" class="font-sans antialiased text-text-light bg-bg-dark flex flex-col min-h-screen">
+<body data-page="about" class="bg-black">
 
+    <div class="bg-glow"></div>
     <div id="header-placeholder"></div>
 
-    <main class="max-w-[1200px] mx-auto px-6 w-full py-12">
-        <section class="mb-16 text-center md:text-left">
-            <h1 class="text-4xl font-medium mb-4">About <span class="text-corporate-blue-light">Me</span></h1>
-        </section>
+    <main class="page-header-padding">
+        <section class="section-gap">
+            <div class="container-l animate-in">
+                <span class="tag">Studio Profile</span>
+                <h1 class="max-w-4xl">We are<br><span class="text-gradient italic font-light lowercase">creators.</span>
+                </h1>
 
-        <!-- Interstitial Ad Unit -->
-        <!-- <div class="max-w-[1200px] mx-auto py-8">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1383054634086783"
-                data-ad-slot="6280054968" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div> -->
-
-        <div class="flex flex-col items-center text-center gap-12">
-            <!-- Big Text -->
-            <h2 class="text-5xl md:text-6xl font-bold text-text-light leading-tight">
-                Forget reading,<br><span class="text-corporate-orange-light">just look.</span>
-            </h2>
-
-            <!-- Image -->
-            <div class="w-full max-w-2xl">
-                <div class="aspect-square md:aspect-video rounded-3xl overflow-hidden shadow-2xl">
-                    <img src="../img/bebe.webp" alt="Childhood photo" class="w-full h-full object-cover">
+                <div class="max-w-3xl glass-card p-12 md:p-16 mt-16">
+                    <p class="text-2xl md:text-3xl font-light leading-relaxed text-white mb-8">
+                        Where 2 Create is a design studio blurring the lines between the digital and the physical.
+                    </p>
+                    <p class="text-lg text-gray-400 font-light leading-relaxed">
+                        From immersive dark rides to high-performance productivity tools. Our philosophy is rooted in
+                        the belief that if you can imagine a system, we can build the emotional bridge to experience it.
+                    </p>
                 </div>
             </div>
+        </section>
 
-            <p class="text-gray-light mt-8">( Pictures speak louder than words )</p>
-        </div>
+        <section class="section-gap">
+            <div class="container-l grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-10">
+                    <h3 class="text-2xl font-bold italic mb-4">Design</h3>
+                    <p class="text-gray-500 font-light text-sm">Aesthetic precision meets functional speed.</p>
+                </div>
+                <div class="glass-card p-10">
+                    <h3 class="text-2xl font-bold italic mb-4">Tech</h3>
+                    <p class="text-gray-500 font-light text-sm">Building with the most advanced modern stack.</p>
+                </div>
+                <div class="glass-card p-10">
+                    <h3 class="text-2xl font-bold italic mb-4">Thrill</h3>
+                    <p class="text-gray-500 font-light text-sm">Engineering physical emotion since 2026.</p>
+                </div>
+            </div>
+        </section>
+
+        <div id="carousel-placeholder" class="section-gap"></div>
     </main>
-    <div id="carousel-placeholder"></div>
-
-    <!-- Multiplex Ad Unit -->
-    <!-- <div class="max-w-[1200px] mx-auto px-6 py-8">
-        <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
-            data-ad-client="ca-pub-1383054634086783" data-ad-slot="8274844678"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div> -->
 
     <div id="footer-placeholder"></div>
-    <script type="module" src="../js/main.js"></script>
+
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/carousel-loader.js"></script>
+    <script src="../js/accordion.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>

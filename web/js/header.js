@@ -1,125 +1,98 @@
-export function loadHeader(currentPage) {
+function loadHeader(currentPage) {
+    const path = window.location.pathname;
+    const isRoot = !path.includes('/thrills/') && !path.includes('/games/') && !path.includes('/apps/') && !path.includes('/about/') && !path.includes('/contact/');
+    const segments = path.split('/').filter(s => s.length > 0);
+    const parent = segments[segments.length - 2];
+    const isDeep = parent === 'kraken' || parent === 'mermaid' || parent === 'impostor' || parent === 'party-guide';
+
+    let relPrefix = '';
+    if (isDeep) relPrefix = '../../';
+    else if (!isRoot) relPrefix = '../';
+
     const headerHTML = `
-        <div class="max-w-[1200px] mx-auto px-6 grid grid-cols-3 items-center h-full relative">
+        <div class="container-l h-full flex justify-between items-center relative">
             
-            <!-- Logo (Left) -->
-            <div class="flex justify-start">
-                <a href="/" class="flex items-center gap-2 h-full py-1 z-50">
-                    <img src="/img/LOGO.png" alt="Logo" class="h-8 md:h-[26px] w-auto object-contain" onerror="this.onerror=null; this.src=''; this.innerHTML='<span class=\'font-bold text-lg text-white\'><span class=\'text-corporate-blue\'>W2C</span></span>';">
+            <!-- Branding -->
+            <div class="flex-1 flex items-center">
+                <a href="${relPrefix}index.html" class="flex items-center transition-opacity hover:opacity-70">
+                    <img src="${relPrefix}img/LOGO.png" alt="W2C" class="h-6 md:h-7 w-auto object-contain" onerror="this.onerror=null; this.src=''; this.innerHTML='<span class=\'font-bold text-white tracking-tighter text-xl\'>W2C.</span>';">
                 </a>
             </div>
 
-            <!-- Desktop Nav (Center) -->
-            <nav class="hidden md:flex justify-center h-full">
-                <ul class="flex h-full items-stretch gap-0">
-                    <li><a href="/" data-page="index" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Home</a></li>
-                    <li><a href="/thrills/" data-page="thrills" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Thrills</a></li>
-                    <li><a href="/games/" data-page="games" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Games</a></li>
-                    <li><a href="/apps/" data-page="apps" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Apps</a></li>
-                    <li><a href="/about/" data-page="about" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors">About</a></li>
-                    <li><a href="/contact/" data-page="contact" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Contact</a></li>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center">
+                <ul class="flex items-center gap-1">
+                    <li><a href="${relPrefix}index.html" data-nav="index" class="nav-link">Home</a></li>
+                    <li><a href="${relPrefix}thrills/index.html" data-nav="thrills" class="nav-link">Thrills</a></li>
+                    <li><a href="${relPrefix}games/index.html" data-nav="games" class="nav-link">Games</a></li>
+                    <li><a href="${relPrefix}apps/index.html" data-nav="apps" class="nav-link">Apps</a></li>
+                    <li><a href="${relPrefix}about/index.html" data-nav="about" class="nav-link">About</a></li>
+                    <li><a href="${relPrefix}contact/index.html" data-nav="contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
 
-            <!-- Mobile Hamburger Button (Right) -->
-            <div class="col-start-3 flex justify-end md:hidden">
-                <button id="mobile-menu-btn" class="text-white z-50 relative focus:outline-none w-8 h-8 flex justify-center items-center">
-                    <div class="menu-icon w-6 h-5 flex flex-col justify-between relative transform transition-all duration-300">
-                        <span class="w-full h-0.5 bg-white transform transition-all duration-300 origin-center"></span>
-                        <span class="w-full h-0.5 bg-white transition-opacity duration-300"></span>
-                        <span class="w-full h-0.5 bg-white transform transition-all duration-300 origin-center"></span>
-                    </div>
-                </button>
+            <!-- Spacer for balance -->
+            <div class="flex-1 hidden md:flex"></div>
+
+            <!-- Mobile Toggle -->
+            <button id="m-btn" class="md:hidden flex items-center justify-center w-10 h-10 text-white rounded-xl hover:bg-white/5 transition-all">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path></svg>
+            </button>
+
+            <!-- Mobile Menu -->
+            <div id="m-sidebar" class="fixed top-0 right-0 h-screen w-full md:w-[400px] bg-black translate-x-full transition-transform duration-500 z-[10001] p-12 flex flex-col justify-center">
+                <button id="m-close" class="absolute top-8 right-10 text-white opacity-50 hover:opacity-100 italic font-bold">Close</button>
+                <nav class="flex flex-col gap-8">
+                    <a href="${relPrefix}index.html" class="text-5xl font-extrabold text-white decoration-none hover:text-blue-500 tracking-tighter">Home</a>
+                    <a href="${relPrefix}thrills/index.html" class="text-5xl font-extrabold text-white decoration-none hover:text-blue-500 tracking-tighter">Thrills</a>
+                    <a href="${relPrefix}games/index.html" class="text-5xl font-extrabold text-white decoration-none hover:text-blue-500 tracking-tighter">Games</a>
+                    <a href="${relPrefix}apps/index.html" class="text-5xl font-extrabold text-white decoration-none hover:text-blue-500 tracking-tighter">Apps</a>
+                    <a href="${relPrefix}about/index.html" class="text-5xl font-extrabold text-white decoration-none hover:text-blue-500 tracking-tighter">About</a>
+                    <a href="${relPrefix}contact/index.html" class="text-5xl font-extrabold text-white decoration-none hover:text-blue-500 tracking-tighter">Contact</a>
+                </nav>
             </div>
-        </div>
+            <div id="m-shade" class="fixed inset-0 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-500 z-[10000]"></div>
 
-        <!-- Mobile Menu Backdrop -->
-        <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/80 z-40 transition-opacity duration-300 opacity-0 pointer-events-none backdrop-blur-sm"></div>
-
-        <!-- Mobile Menu Sidebar -->
-        <div id="mobile-menu-sidebar" class="fixed top-0 right-0 h-full w-64 bg-black border-l border-gray-900 z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl pt-24 px-6">
-            <nav class="flex flex-col gap-6">
-                <!-- Using clean URLs -->
-                <a href="/" class="text-lg font-medium text-gray-400 hover:text-white hover:text-corporate-blue transition-colors border-b border-gray-800 pb-2">Home</a>
-                <a href="/thrills/" class="text-lg font-medium text-gray-400 hover:text-white hover:text-corporate-blue transition-colors border-b border-gray-800 pb-2">Thrills</a>
-                <a href="/games/" class="text-lg font-medium text-gray-400 hover:text-white hover:text-corporate-blue transition-colors border-b border-gray-800 pb-2">Games</a>
-                <a href="/apps/" class="text-lg font-medium text-gray-400 hover:text-white hover:text-corporate-blue transition-colors border-b border-gray-800 pb-2">Apps</a>
-                <a href="/about/" class="text-lg font-medium text-gray-400 hover:text-white hover:text-corporate-blue transition-colors border-b border-gray-800 pb-2">About</a>
-                <a href="/contact/" class="text-lg font-medium text-gray-400 hover:text-white hover:text-corporate-blue transition-colors border-b border-gray-800 pb-2">Contact</a>
-            </nav>
         </div>
     `;
 
-    const headerElement = document.createElement('header');
-    headerElement.className = "sticky top-0 z-50 bg-black h-[40px] w-full"; //  border-b border-gray-900
-    headerElement.innerHTML = headerHTML;
+    const el = document.createElement('header');
+    el.id = "main-header";
+    el.innerHTML = headerHTML;
 
-    // Insertion Logic
     const placeholder = document.getElementById('header-placeholder');
-    if (placeholder) {
-        placeholder.replaceWith(headerElement);
-    } else {
-        const existingHeader = document.querySelector('header');
-        if (existingHeader) existingHeader.remove();
-        document.body.prepend(headerElement);
-    }
+    if (placeholder) placeholder.replaceWith(el);
+    else document.body.prepend(el);
 
-    // Active Link Logic
-    const navLinks = headerElement.querySelectorAll('nav.hidden a'); // Select only Desktop nav links for specific desktop styling
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (link.dataset.page === currentPage || (href && href.includes(currentPage + '.html'))) {
-            // Desktop: Blue BG, White Text
-            link.classList.remove('text-gray-400', 'hover:bg-white/5');
-            link.classList.add('bg-corporate-blue', 'text-white');
-        }
+    // Dynamic Scrolling
+    const updateHeader = () => {
+        if (window.scrollY > 50) el.classList.add('scrolled');
+        else el.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', updateHeader);
+    updateHeader(); // Init state
+
+    // Active State
+    el.querySelectorAll('[data-nav]').forEach(link => {
+        if (link.dataset.nav === currentPage) link.classList.add('active');
     });
 
-    // Mobile Active Logic (just color)
-    const mobileLinks = headerElement.querySelectorAll('#mobile-menu-overlay a');
-    mobileLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && href.includes(currentPage + '.html')) {
-            link.classList.add('text-corporate-blue');
-        }
-    });
+    // Mobile Logic
+    const btn = document.getElementById('m-btn');
+    const close = document.getElementById('m-close');
+    const bar = document.getElementById('m-sidebar');
+    const shade = document.getElementById('m-shade');
 
-    // Mobile Menu Logic
-    const btn = headerElement.querySelector('#mobile-menu-btn');
-    const sidebar = headerElement.querySelector('#mobile-menu-sidebar');
-    const backdrop = headerElement.querySelector('#mobile-menu-backdrop');
-    const menuIcon = btn.querySelector('.menu-icon'); // The 3 lines container
-
-    function toggleMenu() {
-        const isClosed = sidebar.classList.contains('translate-x-full');
-
-        if (isClosed) {
-            // Open
-            sidebar.classList.remove('translate-x-full');
-            backdrop.classList.remove('opacity-0', 'pointer-events-none');
-            document.body.style.overflow = 'hidden';
-
-            // Animate Hamburger to X
-            // Line 1: Rotate 45deg, Translate
-            menuIcon.children[0].classList.add('rotate-45', 'translate-y-2.5');
-            // Line 2: Fade out
-            menuIcon.children[1].classList.add('opacity-0');
-            // Line 3: Rotate -45deg, Translate
-            menuIcon.children[2].classList.add('-rotate-45', '-translate-y-2.5');
-
-        } else {
-            // Close
-            sidebar.classList.add('translate-x-full');
-            backdrop.classList.add('opacity-0', 'pointer-events-none');
-            document.body.style.overflow = '';
-
-            // Animate X to Hamburger
-            menuIcon.children[0].classList.remove('rotate-45', 'translate-y-2.5');
-            menuIcon.children[1].classList.remove('opacity-0');
-            menuIcon.children[2].classList.remove('-rotate-45', '-translate-y-2.5');
-        }
+    if (btn && bar && shade) {
+        const toggle = (force) => {
+            const open = typeof force === 'boolean' ? force : bar.classList.contains('translate-x-full');
+            bar.classList.toggle('translate-x-full', !open);
+            shade.classList.toggle('opacity-0', !open);
+            shade.classList.toggle('pointer-events-none', !open);
+            document.body.style.overflow = open ? 'hidden' : '';
+        };
+        btn.onclick = () => toggle(true);
+        close.onclick = shade.onclick = () => toggle(false);
     }
-
-    btn.addEventListener('click', toggleMenu);
-    backdrop.addEventListener('click', toggleMenu);
 }
+window.loadHeader = loadHeader;
