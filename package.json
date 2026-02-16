@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./web/dist/output.css",
+    "watch": "tailwindcss -i ./src/input.css -o ./web/dist/output.css --watch",
+    "start": "npx -y serve web",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +23,7 @@
   "homepage": "https://github.com/Misael-Git/where2create#readme",
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.18",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "serve": "^14.2.4"
   }
 }
