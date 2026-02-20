@@ -77,12 +77,12 @@ export function loadCarousel(placeholderId, currentPageId) {
                 `).join('')}
 
                 <!-- Navigation Controls: Centered Square Buttons -->
-                <button id="prev-btn" class="absolute top-1/2 -translate-y-1/2 left-0 w-12 h-12 bg-white/10 hover:bg-white/20 text-white z-30 transition-all focus:outline-none cursor-pointer flex items-center justify-center">
+                <button id="prev-btn" aria-label="Previous slide" class="absolute top-1/2 -translate-y-1/2 left-0 w-12 h-12 bg-white/10 hover:bg-white/20 text-white z-30 transition-all focus:outline-none cursor-pointer flex items-center justify-center">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"></path>
                     </svg>
                 </button>
-                <button id="next-btn" class="absolute top-1/2 -translate-y-1/2 right-0 w-12 h-12 bg-white/10 hover:bg-white/20 text-white z-30 transition-all focus:outline-none cursor-pointer flex items-center justify-center">
+                <button id="next-btn" aria-label="Next slide" class="absolute top-1/2 -translate-y-1/2 right-0 w-12 h-12 bg-white/10 hover:bg-white/20 text-white z-30 transition-all focus:outline-none cursor-pointer flex items-center justify-center">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"></path>
                     </svg>
