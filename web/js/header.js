@@ -10,17 +10,14 @@ export function loadHeader(currentPage) {
             </div>
 
             <!-- Desktop Nav (Center) -->
-            <nav class="hidden md:flex justify-center h-full relative">
-                <!-- Sliding Pill Background -->
-                <div id="nav-pill" class="absolute top-0 bottom-0 bg-corporate-blue transition-all duration-300 ease-in-out z-0 pointer-events-none opacity-0"></div>
-                
-                <ul class="flex h-full items-stretch gap-0 relative z-10">
-                    <li><a href="/" data-page="index" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white transition-colors">Home</a></li>
-                    <li><a href="/thrills/" data-page="thrills" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white transition-colors">Thrills</a></li>
-                    <li><a href="/games/" data-page="games" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white transition-colors">Games</a></li>
-                    <li><a href="/apps/" data-page="apps" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white transition-colors">Apps</a></li>
-                    <li><a href="/about/" data-page="about" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white transition-colors">About</a></li>
-                    <li><a href="/contact/" data-page="contact" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white transition-colors">Contact</a></li>
+            <nav class="hidden md:flex justify-center h-full">
+                <ul class="flex h-full items-stretch gap-0">
+                    <li><a href="/" data-page="index" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Home</a></li>
+                    <li><a href="/thrills/" data-page="thrills" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Thrills</a></li>
+                    <li><a href="/games/" data-page="games" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Games</a></li>
+                    <li><a href="/apps/" data-page="apps" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Apps</a></li>
+                    <li><a href="/about/" data-page="about" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors">About</a></li>
+                    <li><a href="/contact/" data-page="contact" class="h-full flex items-center px-5 text-[12px] font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors">Contact</a></li>
                 </ul>
             </nav>
 
@@ -67,44 +64,24 @@ export function loadHeader(currentPage) {
         document.body.prepend(headerElement);
     }
 
-    // Nav Logic
-    const navPill = headerElement.querySelector('#nav-pill');
-    const navLinks = headerElement.querySelectorAll('nav.hidden ul li a');
-
-    function updatePill(activeLink) {
-        if (!navPill || !activeLink) return;
-        
-        // Position relative to nav container
-        const left = activeLink.offsetLeft;
-        const width = activeLink.offsetWidth;
-
-        navPill.style.left = `${left}px`;
-        navPill.style.width = `${width}px`;
-        navPill.style.opacity = '1';
-    }
-
-    let activeLink = null;
+    // Active Link Logic
+    const navLinks = headerElement.querySelectorAll('nav.hidden a'); // Select only Desktop nav links for specific desktop styling
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
-        // Match by data-page or path
-        const isMatch = link.dataset.page === currentPage || (href && (href === `/${currentPage}/` || href === `/${currentPage}.html` || (currentPage === 'index' && href === '/')));
-        
-        if (isMatch) {
-            link.classList.remove('text-gray-400');
-            link.classList.add('text-white', 'active-nav');
-            activeLink = link;
+        if (link.dataset.page === currentPage || (href && href.includes(currentPage + '.html'))) {
+            // Desktop: Blue BG, White Text
+            link.classList.remove('text-gray-400', 'hover:bg-white/5');
+            link.classList.add('bg-corporate-blue', 'text-white');
         }
     });
 
-    // Initial position after some layout calculation time
-    if (activeLink) {
-        setTimeout(() => updatePill(activeLink), 50);
-    }
-
-    // Handle resize to keep pill aligned
-    window.addEventListener('resize', () => {
-        const currentActive = headerElement.querySelector('.active-nav');
-        if (currentActive) updatePill(currentActive);
+    // Mobile Active Logic (just color)
+    const mobileLinks = headerElement.querySelectorAll('#mobile-menu-overlay a');
+    mobileLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.includes(currentPage + '.html')) {
+            link.classList.add('text-corporate-blue');
+        }
     });
 
     // Mobile Menu Logic
